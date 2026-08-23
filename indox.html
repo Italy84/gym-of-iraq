@@ -1,191 +1,504 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gym of Iraq</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gym of Iraq | جيم العراق</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:#07111f;
+    color:#fff;
+    line-height:1.7;
+}
+
+header{
+    background:linear-gradient(135deg,#0b1728,#102b45);
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #1d405f;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#35d07f;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 10px;
+    font-size:15px;
+}
+
+nav a:hover{
+    color:#35d07f;
+}
+
+.hero{
+    min-height:560px;
+    padding:80px 7%;
+    display:flex;
+    align-items:center;
+    background:
+    radial-gradient(circle at 80% 30%,rgba(53,208,127,.18),transparent 35%),
+    linear-gradient(135deg,#07111f,#0b2034);
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.badge{
+    display:inline-block;
+    background:#123a35;
+    color:#35d07f;
+    padding:7px 15px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+h1{
+    font-size:52px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+h1 span{
+    color:#35d07f;
+}
+
+.hero p{
+    color:#b8c7d6;
+    font-size:19px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#35d07f;
+    color:#06121e;
+    padding:13px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.btn:hover{
+    background:#51e695;
+}
+
+.btn.secondary{
+    background:#142b40;
+    color:#fff;
+    margin-right:10px;
+}
+
+section{
+    padding:70px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#91a5b8;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#0d1d2e;
+    border:1px solid #1b344b;
+    border-radius:16px;
+    padding:28px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#35d07f;
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    margin-bottom:8px;
+    font-size:21px;
+}
+
+.card p{
+    color:#9db0c2;
+    font-size:15px;
+}
+
+.about{
+    background:#091827;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.stat{
+    background:#10253a;
+    padding:25px;
+    border-radius:14px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#35d07f;
+}
+
+.stat span{
+    color:#9db0c2;
+}
+
+.ai{
+    background:
+    radial-gradient(circle at 20% 50%,rgba(53,208,127,.12),transparent 35%),
+    #07111f;
+}
+
+.ai-box{
+    max-width:800px;
+    margin:auto;
+    background:#0d1d2e;
+    border:1px solid #21425d;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+}
+
+.ai-box h2{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.ai-box p{
+    color:#a9bbca;
+    margin-bottom:25px;
+}
+
+.start{
+    text-align:center;
+    background:#0d1d2e;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#7890a5;
+    border-top:1px solid #193147;
+    background:#050d16;
+}
+
+#message{
+    display:none;
+    margin-top:20px;
+    background:#123a35;
+    color:#35d07f;
+    padding:12px;
+    border-radius:10px;
+}
+
+@media(max-width:800px){
+    header{
+        flex-direction:column;
+        gap:15px;
     }
 
-    body {
-      margin: 0;
-      background: #f4f6f8;
-      color: #222;
+    nav{
+        text-align:center;
     }
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    nav a{
+        display:inline-block;
+        margin:5px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
+    h1{
+        font-size:38px;
     }
 
-    header p {
-      margin: 8px 0 0;
-      color: #cbd5e1;
+    .hero{
+        padding:60px 6%;
+        min-height:500px;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 20px;
+    .cards{
+        grid-template-columns:1fr;
     }
 
-    .welcome {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      margin-bottom: 25px;
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:450px){
+    .stats{
+        grid-template-columns:1fr;
     }
 
-    .welcome h2 {
-      margin-top: 0;
+    .btn{
+        width:100%;
+        text-align:center;
+        margin:5px 0;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+    .btn.secondary{
+        margin-right:0;
     }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      margin: 10px 0;
-    }
-
-    .card p {
-      color: #666;
-    }
-
-    .start {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    button {
-      background: #16a34a;
-      color: white;
-      border: none;
-      padding: 14px 30px;
-      border-radius: 10px;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #15803d;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🏋️ Gym of Iraq</h1>
-    <p>المساعد الذكي لإدارة الجيم واللياقة البدنية</p>
-  </header>
+<header>
+    <div class="logo">🇮🇶 Gym of Iraq</div>
 
-  <div class="container">
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#ai">المساعد AI</a>
+        <a href="#about">عن المشروع</a>
+    </nav>
+</header>
 
-    <div class="welcome">
-      <h2>أهلاً بك في Gym of Iraq 👋</h2>
-      <p>
-        منصة ذكية تساعد أصحاب الجيم والمدربين والمشتركين
-        على إدارة التمارين والتغذية والمتابعة.
-      </p>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="badge">منصة اللياقة العراقية الجديدة 🇮🇶</div>
+
+        <h1>
+            طوّر جسمك مع
+            <span>Gym of Iraq</span>
+        </h1>
+
+        <p>
+            منصة ذكية تجمع المدربين والعملاء والبرامج التدريبية
+            والتغذية والمتابعة في مكان واحد.
+        </p>
+
+        <a href="#services" class="btn">اكتشف المنصة</a>
+
+        <a href="#ai" class="btn secondary">جرّب مساعد AI</a>
+
+    </div>
+</section>
+
+
+<section id="services">
+
+    <div class="section-title">
+        <h2>خدمات المنصة</h2>
+        <p>كل ما يحتاجه المدرب والرياضي في مكان واحد</p>
     </div>
 
     <div class="cards">
 
-      <div class="card">
-        <div class="icon">👤</div>
-        <h3>المشتركين</h3>
-        <p>إدارة بيانات ومتابعة المشتركين</p>
-      </div>
+        <div class="card">
+            <div class="icon">🏋️</div>
+            <h3>برامج التدريب</h3>
+            <p>
+                إنشاء وتنظيم برامج تدريبية حسب هدف ومستوى كل مشترك.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="icon">🏋️</div>
-        <h3>التمارين</h3>
-        <p>إنشاء ومتابعة البرامج التدريبية</p>
-      </div>
+        <div class="card">
+            <div class="icon">🥗</div>
+            <h3>التغذية</h3>
+            <p>
+                تنظيم الوجبات والسعرات والبروتين والكربوهيدرات والدهون.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="icon">🍗</div>
-        <h3>التغذية</h3>
-        <p>السعرات والبروتين والخطط الغذائية</p>
-      </div>
+        <div class="card">
+            <div class="icon">👨‍🏫</div>
+            <h3>المدربين</h3>
+            <p>
+                مساحة خاصة للمدرب لإدارة المشتركين والبرامج والمتابعة.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="icon">📊</div>
-        <h3>المتابعة</h3>
-        <p>الوزن والقياسات والتقدم</p>
-      </div>
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>حساب العميل</h3>
+            <p>
+                ملف شخصي لمتابعة الوزن والقياسات والتمارين والتقدم.
+            </p>
+        </div>
 
-      <div class="card">
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>متابعة التقدم</h3>
+            <p>
+                متابعة تطور الجسم والأوزان والقياسات والإنجازات.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>مساعد الذكاء الاصطناعي</h3>
+            <p>
+                مساعد ذكي يساعد المدرب والعميل في التدريب والتغذية.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>Gym of Iraq</h2>
+        <p>
+            مشروع عراقي نريد أن نحوله إلى منصة رياضية متكاملة.
+        </p>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <strong>24/7</strong>
+            <span>مساعدة ذكية</span>
+        </div>
+
+        <div class="stat">
+            <strong>AI</strong>
+            <span>ذكاء اصطناعي</span>
+        </div>
+
+        <div class="stat">
+            <strong>🇮🇶</strong>
+            <span>مصمم للعراق</span>
+        </div>
+
+        <div class="stat">
+            <strong>∞</strong>
+            <span>قابل للتطوير</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="ai" id="ai">
+
+    <div class="ai-box">
+
         <div class="icon">🤖</div>
-        <h3>المساعد الذكي</h3>
-        <p>مساعد AI للمدرب والمشترك</p>
-      </div>
 
-      <div class="card">
-        <div class="icon">🏢</div>
-        <h3>إدارة الجيم</h3>
-        <p>إدارة الاشتراكات والمدربين</p>
-      </div>
+        <h2>مساعد Gym of Iraq AI</h2>
+
+        <p>
+            قريبًا سيكون بإمكانك التحدث مع مساعد ذكي
+            للحصول على خطط تدريب وتغذية ومتابعة شخصية.
+        </p>
+
+        <button class="btn" onclick="startAI()">
+            ابدأ الآن 🚀
+        </button>
+
+        <div id="message">
+            ممتاز! المساعد الذكي قادم في المرحلة التالية 💪
+        </div>
 
     </div>
 
-    <div class="start">
-      <button onclick="startApp()">
-        ابدأ الآن 🚀
-      </button>
+</section>
+
+
+<section class="start">
+
+    <div class="section-title">
+        <h2>جاهز تبدأ؟</h2>
+
+        <p>
+            هذه مجرد البداية. سنبني المنصة خطوة بخطوة.
+        </p>
     </div>
 
-  </div>
+    <button class="btn" onclick="startApp()">
+        ابدأ رحلتك 💪
+    </button>
 
-  <footer>
-    © 2026 Gym of Iraq
-  </footer>
+    <div id="appMessage"></div>
 
-  <script>
-    function startApp() {
-      alert("مرحباً بك في Gym of Iraq 🚀");
-    }
-  </script>
+</section>
+
+
+<footer>
+    © 2026 Gym of Iraq 🇮🇶 — جميع الحقوق محفوظة
+</footer>
+
+
+<script>
+
+function startAI(){
+
+    var message = document.getElementById("message");
+
+    message.style.display = "block";
+
+    message.innerHTML =
+        "🚀 تم تشغيل المرحلة التجريبية! سنربط الذكاء الاصطناعي الحقيقي في المرحلة القادمة.";
+}
+
+
+function startApp(){
+
+    var box = document.getElementById("appMessage");
+
+    box.style.display = "block";
+
+    box.style.marginTop = "20px";
+
+    box.style.color = "#35d07f";
+
+    box.innerHTML =
+        "💪 أهلاً بك في Gym of Iraq! التسجيل والملفات الشخصية قادمة في الخطوة التالية.";
+}
+
+</script>
 
 </body>
-</html>
