@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym of Iraq</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .welcome {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    .welcome h2 {
+      margin-top: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    .card p {
+      color: #666;
+    }
+
+    .start {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    button {
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #15803d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🏋️ Gym of Iraq</h1>
+    <p>المساعد الذكي لإدارة الجيم واللياقة البدنية</p>
+  </header>
+
+  <div class="container">
+
+    <div class="welcome">
+      <h2>أهلاً بك في Gym of Iraq 👋</h2>
+      <p>
+        منصة ذكية تساعد أصحاب الجيم والمدربين والمشتركين
+        على إدارة التمارين والتغذية والمتابعة.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">👤</div>
+        <h3>المشتركين</h3>
+        <p>إدارة بيانات ومتابعة المشتركين</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏋️</div>
+        <h3>التمارين</h3>
+        <p>إنشاء ومتابعة البرامج التدريبية</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🍗</div>
+        <h3>التغذية</h3>
+        <p>السعرات والبروتين والخطط الغذائية</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>المتابعة</h3>
+        <p>الوزن والقياسات والتقدم</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>المساعد الذكي</h3>
+        <p>مساعد AI للمدرب والمشترك</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏢</div>
+        <h3>إدارة الجيم</h3>
+        <p>إدارة الاشتراكات والمدربين</p>
+      </div>
+
+    </div>
+
+    <div class="start">
+      <button onclick="startApp()">
+        ابدأ الآن 🚀
+      </button>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Gym of Iraq
+  </footer>
+
+  <script>
+    function startApp() {
+      alert("مرحباً بك في Gym of Iraq 🚀");
+    }
+  </script>
+
+</body>
+</html>
