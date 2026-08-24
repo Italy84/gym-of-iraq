@@ -714,6 +714,8 @@ function startApp(){
 
      <label>صورة المتدرب (اختياري)</label>
 <input class="gym-input" id="traineePhoto" type="file" accept="image/*">
+<label>الصورة الشخصية (اختياري)</label>
+<input class="gym-input" id="traineeProfilePhoto" type="file" accept="image/*">
 
 <label>الوزن (اختياري)</label>
 <input class="gym-input" id="traineeWeight" type="number" placeholder="الوزن بالكيلو">
@@ -782,6 +784,8 @@ function saveTrainee(){
 
   var photoInput = document.getElementById("traineePhoto");
   var photoFile = photoInput ? photoInput.files[0] : null;
+var profilePhotoInput = document.getElementById("traineeProfilePhoto");
+var profilePhotoFile = profilePhotoInput ? profilePhotoInput.files[0] : null;
 
   var weightInput = document.getElementById("traineeWeight");
   var heightInput = document.getElementById("traineeHeight");
@@ -821,11 +825,26 @@ function saveTrainee(){
     notes: notes,
 
     photo: ""
+      profilephoto: ""
   };
 
   var trainees =
     JSON.parse(localStorage.getItem("gymTrainees")) || [];
 
+if(profilePhotoFile){
+    var profileReader = new FileReader();
+
+    profileReader.onload = function(e){
+        trainee.profilePhoto = e.target.result;
+
+        localStorage.setItem(
+            "gymTrainees",
+            JSON.stringify(trainees)
+        );
+    };
+
+    profileReader.readAsDataURL(profilePhotoFile);
+}
 
   if(photoFile){
 
@@ -904,8 +923,12 @@ function renderTrainees(list) {
         var photo = trainee.photo
             ? "<img src='" + trainee.photo + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;'>"
             : "<div style='font-size:50px;'>🏋️</div>";
+var profilePhoto = trainee.profilePhoto
+    ? "<img src='" + trainee.profilePhoto + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;'>"
+    : "";
 
         card.innerHTML =
+            profilephoto +
             photo +
             "<h3>" + (trainee.name || "بدون اسم") + "</h3>" +
             "<p>العمر: " + (trainee.age || "-") + "</p>" +
