@@ -695,6 +695,18 @@ function startApp(){
            type="text"
            placeholder="اسم الكابتن">
 
+     <label>صورة المتدرب (اختياري)</label>
+<input class="gym-input" id="traineePhoto" type="file" accept="image/*">
+
+<label>الوزن (اختياري)</label>
+<input class="gym-input" id="traineeWeight" type="number" placeholder="الوزن بالكيلو">
+
+<label>الطول (اختياري)</label>
+<input class="gym-input" id="traineeHeight" type="number" placeholder="الطول بالسنتيمتر">
+
+<label>ملاحظات (اختياري)</label>
+<textarea class="gym-input" id="traineeNotes" placeholder="ملاحظات عن المتدرب"></textarea>
+ 
     <button class="gym-submit" onclick="saveTrainee()">
       حفظ بيانات المتدرب
     </button>
@@ -758,16 +770,42 @@ function saveTrainee(){
     return;
   }
 
-  var trainee = {
+var trainee = {
     name:name,
     age:age,
     phone:phone,
     start:start,
     end:end,
-    coach:coach
-  };
+    coach:coach,
+    photo:""
+};
 
-  localStorage.setItem("gymTrainee", JSON.stringify(trainee));
+var photoFile = document.getElementById("traineePhoto").files[0];
+
+if(photoFile){
+    var reader = new FileReader();
+
+    reader.onload = function(e){
+        trainee.photo = e.target.result;
+
+        localStorage.setItem("gymTrainee", JSON.stringify(trainee));
+
+        alert("تم حفظ بيانات المتدرب والصورة بنجاح ✓");
+
+        closeGymModal("traineeModal");
+    };
+
+    reader.readAsDataURL(photoFile);
+
+}else{
+
+    localStorage.setItem("gymTrainee", JSON.stringify(trainee));
+
+    alert("تم حفظ بيانات المتدرب بنجاح ✓");
+
+    closeGymModal("traineeModal");
+}
+Sent
 
   alert("تم حفظ بيانات المتدرب بنجاح ✅");
 
