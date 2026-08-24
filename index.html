@@ -775,103 +775,145 @@ function closeGymModal(id){
 
 function saveTrainee(){
 
-  var name = document.getElementById("traineeName").value;
-  var age = document.getElementById("traineeAge").value;
-  var phone = document.getElementById("traineePhone").value;
-  var start = document.getElementById("traineeStart").value;
-  var end = document.getElementById("traineeEnd").value;
-  var coach = document.getElementById("traineeCoach").value;
+    var name = document.getElementById("traineeName").value;
+    var age = document.getElementById("traineeAge").value;
+    var phone = document.getElementById("traineePhone").value;
+    var start = document.getElementById("traineeStart").value;
+    var end = document.getElementById("traineeEnd").value;
+    var coach = document.getElementById("traineeCoach").value;
 
-  var photoInput = document.getElementById("traineePhoto");
-  var photoFile = photoInput ? photoInput.files[0] : null;
-var profilePhotoInput = document.getElementById("traineeProfilePhoto");
-var profilePhotoFile = profilePhotoInput ? profilePhotoInput.files[0] : null;
+    var photoInput = document.getElementById("traineePhoto");
+    var photoFile = photoInput && photoInput.files[0]
+        ? photoInput.files[0]
+        : null;
 
-  var weightInput = document.getElementById("traineeWeight");
-  var heightInput = document.getElementById("traineeHeight");
-  var notesInput = document.getElementById("traineeNotes");
+    var profilePhotoInput = document.getElementById("traineeProfilePhoto");
+    var profilePhotoFile = profilePhotoInput && profilePhotoInput.files[0]
+        ? profilePhotoInput.files[0]
+        : null;
 
-  var weight = weightInput ? weightInput.value : "";
-  var height = heightInput ? heightInput.value : "";
-  var notes = notesInput ? notesInput.value : "";
+    var weightInput = document.getElementById("traineeWeight");
+    var heightInput = document.getElementById("traineeHeight");
+    var notesInput = document.getElementById("traineeNotes");
 
-  if(!name || !phone || !start || !end){
+    var weight = weightInput ? weightInput.value : "";
+    var height = heightInput ? heightInput.value : "";
+    var notes = notesInput ? notesInput.value : "";
 
-    alert("يرجى إدخال الاسم ورقم الهاتف وتاريخ بداية ونهاية الاشتراك.");
+    /* التحقق من البيانات الأساسية */
+    if(!name || !phone || !start || !end){
 
-    return;
-  }
+        alert("يرجى إدخال الاسم ورقم الهاتف وتاريخ بداية ونهاية الاشتراك.");
 
-  var trainee = {
+        return;
+    }
 
-    id: Date.now(),
+    /* بيانات المتدرب */
+    var trainee = {
 
-    name: name,
+        id: Date.now(),
 
-    age: age,
+        name: name,
 
-    phone: phone,
+        age: age,
 
-    start: start,
+        phone: phone,
 
-    end: end,
+        start: start,
 
-    coach: coach,
+        end: end,
 
-    weight: weight,
+        coach: coach,
 
-    height: height,
+        weight: weight,
 
-    notes: notes,
+        height: height,
 
-    photo: ""
-      profilephoto: ""
-  };
+        notes: notes,
 
-  var trainees =
-    JSON.parse(localStorage.getItem("gymTrainees")) || [];
+        photo: "",
 
-if(profilePhotoFile){
-    var profileReader = new FileReader();
+        profilePhoto: ""
 
-    profileReader.onload = function(e){
-        trainee.profilePhoto = e.target.result;
-
-        localStorage.setItem(
-            "gymTrainees",
-            JSON.stringify(trainees)
-        );
     };
 
-    profileReader.readAsDataURL(profilePhotoFile);
+    /* جلب المتدربين السابقين */
+    var trainees = JSON.parse(
+        localStorage.getItem("gymTrainees")
+    ) || [];
+
+
+    /* قراءة الصور */
+    function readImage(file, callback){
+
+        if(!file){
+
+            callback("");
+
+            return;
+        }
+
+        var reader = new FileReader();
+
+        reader.onload = function(e){
+
+            callback(e.target.result);
+
+        };
+
+        reader.onerror = function(){
+
+            callback("");
+
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+
+    /* قراءة صورة المتدرب الشخصية أولاً */
+    readImage(profilePhotoFile, function(profileResult){
+
+        trainee.profilePhoto = profileResult;
+
+
+        /* بعدها قراءة صورة التطور */
+        readImage(photoFile, function(photoResult){
+
+            trainee.photo = photoResult;
+
+
+            /* إضافة المتدرب مرة واحدة فقط */
+            trainees.push(trainee);
+
+
+            /* حفظ جميع البيانات */
+            localStorage.setItem(
+                "gymTrainees",
+                JSON.stringify(trainees)
+            );
+
+
+            /* رسالة نجاح */
+            alert("تم حفظ بيانات المتدرب بنجاح ✓");
+
+
+            /* تحديث قائمة المتدربين */
+            if(typeof renderTrainees === "function"){
+
+                renderTrainees();
+
+            }
+
+
+            /* إغلاق النافذة */
+            closeGymModal("traineeModal");
+
+        });
+
+    });
+
 }
-
-  if(photoFile){
-
-    var reader = new FileReader();
-
-    reader.onload = function(e){
-
-      trainee.photo = e.target.result;
-
-      trainees.push(trainee);
-
-      localStorage.setItem(
-        "gymTrainees",
-        JSON.stringify(trainees)
-      );
-
-      alert("✓ تم حفظ بيانات المتدرب بنجاح");
-
-      if(typeof renderTrainees === "function"){
-
-        renderTrainees();
-
-      }
-
-      closeGymModal("traineeModal");
-
-    };
 
     reader.readAsDataURL(photoFile);
 
