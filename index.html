@@ -916,7 +916,7 @@ function renderTrainees(list) {
             "<p>الوزن: " + (trainee.weight || "-") + " كغم</p>" +
             "<p>الطول: " + (trainee.height || "-") + " سم</p>" +
             "<p>" + (trainee.notes || "") + "</p>" +
-            "<button class='gym-user-btn' onclick='editTrainee(" + index + ")'>تعديل المتدرب</button>" +
+"<button class='gym-user-btn' onclick='editTrainee(" + index + ")'>تعديل المتدرب</button>" +
 
                     "<button class='gym-user-btn' onclick='deleteTrainee(" + index + ")'>حذف المتدرب</button>";
 
@@ -957,12 +957,10 @@ function editTrainee(index) {
     );
 
     if (saveButton) {
-        saveButton.innerText = "تحديث بيانات المدرب";
+        saveButton.innerText = "تحديث بيانات المتدرب";
         saveButton.setAttribute("onclick", "updateTrainee()");
     }
 }
-
-
 function updateTrainee() {
 
     var index = window.editingTraineeIndex;
@@ -974,8 +972,7 @@ function updateTrainee() {
     );
 
     if (!trainees[index]) return;
-
-    trainees[index].name =
+trainees[index].name =
         document.getElementById("traineeName").value;
 
     trainees[index].age =
@@ -992,8 +989,7 @@ function updateTrainee() {
 
     trainees[index].coach =
         document.getElementById("traineeCoach").value;
-
-    var weightInput = document.getElementById("traineeWeight");
+var weightInput = document.getElementById("traineeWeight");
     var heightInput = document.getElementById("traineeHeight");
     var notesInput = document.getElementById("traineeNotes");
 
@@ -1006,18 +1002,44 @@ function updateTrainee() {
     if (notesInput)
         trainees[index].notes = notesInput.value;
 
-    localStorage.setItem(
-        "gymTrainees",
-        JSON.stringify(trainees)
-    );
+    var photoInput = document.getElementById("traineePhoto");
 
-    renderTrainees(trainees);
+    if (photoInput && photoInput.files && photoInput.files[0]) {
 
-    alert("✓ تم تحديث بيانات المدرب بنجاح");
+        var reader = new FileReader();
 
-    closeGymModal("traineeModal");
+        reader.onload = function(e) {
 
-    window.editingTraineeIndex = null;
+            trainees[index].photo = e.target.result;
+
+            localStorage.setItem(
+                "gymTrainees",
+                JSON.stringify(trainees)
+            );
+
+            renderTrainees(trainees);
+
+            closeGymModal("traineeModal");
+
+            window.editingTraineeIndex = null;
+        };
+
+        reader.readAsDataURL(photoInput.files[0]);
+
+        return;
+    }
+localStorage.setItem(
+    "gymTrainees",
+    JSON.stringify(trainees)
+);
+
+renderTrainees(trainees);
+
+alert("✓ تم تحديث بيانات المتدرب بنجاح");
+
+closeGymModal("traineeModal");
+
+window.editingTraineeIndex = null;
 }
 
 
