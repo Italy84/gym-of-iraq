@@ -659,6 +659,23 @@ function startApp(){
   </div>
 </section>
 
+    <!-- قائمة المتدربين -->
+<section class="gym-trainees-list">
+
+  <h2 class="gym-users-title">قائمة المتدربين</h2>
+
+  <input
+    class="gym-input"
+    id="traineeSearch"
+    type="text"
+    placeholder="🔍 ابحث باسم المتدرب أو رقم الهاتف"
+    oninput="searchTrainees()"
+  >
+
+  <div id="traineeList"></div>
+
+</section>
+
 
 <!-- نافذة المتدرب -->
 <div id="traineeModal" class="gym-modal">
@@ -763,6 +780,17 @@ function saveTrainee(){
   var end = document.getElementById("traineeEnd").value;
   var coach = document.getElementById("traineeCoach").value;
 
+  var photoInput = document.getElementById("traineePhoto");
+  var photoFile = photoInput ? photoInput.files[0] : null;
+
+  var weightInput = document.getElementById("traineeWeight");
+  var heightInput = document.getElementById("traineeHeight");
+  var notesInput = document.getElementById("traineeNotes");
+
+  var weight = weightInput ? weightInput.value : "";
+  var height = heightInput ? heightInput.value : "";
+  var notes = notesInput ? notesInput.value : "";
+
   if(!name || !phone || !start || !end){
 
     alert("يرجى إدخال الاسم ورقم الهاتف وتاريخ بداية ونهاية الاشتراك.");
@@ -770,48 +798,180 @@ function saveTrainee(){
     return;
   }
 
-var trainee = {
-    name:name,
-    age:age,
-    phone:phone,
-    start:start,
-    end:end,
-    coach:coach,
-    photo:""
-};
+  var trainee = {
 
-var photoFile = document.getElementById("traineePhoto").files[0];
+    id: Date.now(),
 
-if(photoFile){
+    name: name,
+
+    age: age,
+
+    phone: phone,
+
+    start: start,
+
+    end: end,
+
+    coach: coach,
+
+    weight: weight,
+
+    height: height,
+
+    notes: notes,
+
+    photo: ""
+  };
+
+  var trainees =
+    JSON.parse(localStorage.getItem("gymTrainees")) || [];
+
+
+  if(photoFile){
+
     var reader = new FileReader();
 
     reader.onload = function(e){
-        trainee.photo = e.target.result;
 
-        localStorage.setItem("gymTrainee", JSON.stringify(trainee));
+      trainee.photo = e.target.result;
 
-        alert("تم حفظ بيانات المتدرب والصورة بنجاح ✓");
+      trainees.push(trainee);
 
-        closeGymModal("traineeModal");
+      localStorage.setItem(
+        "gymTrainees",
+        JSON.stringify(trainees)
+      );
+
+      alert("✓ تم حفظ بيانات المتدرب بنجاح");
+
+      if(typeof renderTrainees === "function"){
+
+        renderTrainees();
+
+      }
+
+      closeGymModal("traineeModal");
+
     };
 
     reader.readAsDataURL(photoFile);
 
-}else{
+  }else{
 
-    localStorage.setItem("gymTrainee", JSON.stringify(trainee));
+    trainees.push(trainee);
 
-    alert("تم حفظ بيانات المتدرب بنجاح ✓");
+    localStorage.setItem(
+      "gymTrainees",
+      JSON.stringify(trainees)
+    );
+
+    alert("✓ تم حفظ بيانات المتدرب بنجاح");
+
+    if(typeof renderTrainees === "function"){
+
+      renderTrainees();
+
+    }
 
     closeGymModal("traineeModal");
-}
-Sent
+  }
 
-  alert("تم حفظ بيانات المتدرب بنجاح ✅");
-
-  closeGymModal("traineeModal");
 }
 
+function renderTrainees(list) {
+
+    var container = document.getElementById("traineeList");
+
+    if (!container) return;
+
+    var trainees = list || JSON.parse(localStorage.getItem("gymTrainees") || "[]");
+
+    if (trainees.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>لا توجد بيانات متدربين حالياً</p>";
+        return;
+    }
+
+    container.innerHTML = "";
+
+    trainees.forEach(function(trainee, index) {
+
+        var card = document.createElement("div");
+        card.className = "gym-user-card";
+
+        var photo = trainee.photo
+            ? "<img src='" + trainee.photo + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;margin-bottom:10px;'>"
+            : "<div style='font-size:50px;'>🏋️</div>";
+
+        card.innerHTML =
+            photo +
+            "<h3>" + (trainee.name || "بدون اسم") + "</h3>" +
+            "<p>العمر: " + (trainee.age || "-") + "</p>" +
+            "<p>الهاتف: " + (trainee.phone || "-") + "</p>" +
+            "<p>تاريخ البداية: " + (trainee.start || "-") + "</p>" +
+            "<p>تاريخ النهاية: " + (trainee.end || "-") + "</p>" +
+            "<p>المدرب: " + (trainee.coach || "-") + "</p>" +
+            "<p>الوزن: " + (trainee.weight || "-") + " كغم</p>" +
+            "<p>الطول: " + (trainee.height || "-") + " سم</p>" +
+            "<p>" + (trainee.notes || "") + "</p>" +
+            "<button class='gym-user-btn' onclick='deleteTrainee(" + index + ")'>حذف المتدرب</button>";
+
+        container.appendChild(card);
+    });
+}
+
+
+function searchTrainees() {
+
+    var input = document.getElementById("traineeSearch");
+
+    if (!input) return;
+
+    var search = input.value.toLowerCase().trim();
+
+    var trainees = JSON.parse(
+        localStorage.getItem("gymTrainees") || "[]"
+    );
+
+    if (!search) {
+        renderTrainees(trainees);
+        return;
+    }
+
+    var results = trainees.filter(function(trainee) {
+
+        return (
+            (trainee.name || "").toLowerCase().includes(search) ||
+            (trainee.phone || "").toLowerCase().includes(search)
+        );
+
+    });
+
+    renderTrainees(results);
+}
+
+
+function deleteTrainee(index) {
+
+    var trainees = JSON.parse(
+        localStorage.getItem("gymTrainees") || "[]"
+    );
+
+    if (!confirm("هل أنت متأكد من حذف هذا المتدرب؟")) {
+        return;
+    }
+
+    trainees.splice(index, 1);
+
+    localStorage.setItem(
+        "gymTrainees",
+        JSON.stringify(trainees)
+    );
+
+    renderTrainees(trainees);
+}
+
+
+renderTrainees();
 
 function saveCoach(){
 
