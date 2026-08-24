@@ -501,4 +501,305 @@ function startApp(){
 
 </script>
 
+    <style>
+.gym-users-section{
+  padding:40px 20px;
+  text-align:center;
+  direction:rtl;
+}
+
+.gym-users-title{
+  color:#39ff14;
+  font-size:30px;
+  margin-bottom:25px;
+}
+
+.gym-users-grid{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  max-width:900px;
+  margin:auto;
+}
+
+.gym-user-card{
+  width:280px;
+  padding:30px 20px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(57,255,20,0.35);
+  box-shadow:0 8px 25px rgba(0,0,0,0.25);
+  color:white;
+  transition:0.3s;
+}
+
+.gym-user-card:hover{
+  transform:translateY(-6px);
+  border-color:#39ff14;
+}
+
+.gym-user-icon{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.gym-user-card h3{
+  color:#39ff14;
+  font-size:24px;
+  margin:10px 0;
+}
+
+.gym-user-card p{
+  color:#ddd;
+  margin-bottom:20px;
+}
+
+.gym-user-btn{
+  border:0;
+  padding:12px 25px;
+  border-radius:10px;
+  background:#39ff14;
+  color:#07111f;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.gym-user-btn:hover{
+  background:#20d900;
+}
+
+.gym-modal{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+  align-items:center;
+  justify-content:center;
+  direction:rtl;
+}
+
+.gym-modal-box{
+  width:90%;
+  max-width:500px;
+  background:#101a2b;
+  padding:30px;
+  border-radius:18px;
+  color:white;
+  box-shadow:0 15px 50px rgba(0,0,0,0.5);
+}
+
+.gym-modal-box h2{
+  color:#39ff14;
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.gym-input{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border-radius:8px;
+  border:1px solid #555;
+  background:#fff;
+  color:#111;
+  font-size:15px;
+}
+
+.gym-close{
+  float:left;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.gym-submit{
+  width:100%;
+  margin-top:15px;
+  padding:13px;
+  border:0;
+  border-radius:9px;
+  background:#39ff14;
+  color:#07111f;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+</style>
+
+<section class="gym-users-section">
+
+  <h2 class="gym-users-title">نظام إدارة الجيم</h2>
+
+  <div class="gym-users-grid">
+
+    <div class="gym-user-card">
+      <div class="gym-user-icon">🏋️</div>
+      <h3>حساب المتدرب</h3>
+      <p>تسجيل بيانات المتدرب ومتابعة الاشتراك وتاريخ الانتهاء.</p>
+      <button class="gym-user-btn" onclick="openGymModal('traineeModal')">
+        دخول المتدرب
+      </button>
+    </div>
+
+    <div class="gym-user-card">
+      <div class="gym-user-icon">🧑‍🏫</div>
+      <h3>حساب الكابتن</h3>
+      <p>متابعة المتدربين ومعرفة الاشتراكات التي قاربت على الانتهاء.</p>
+      <button class="gym-user-btn" onclick="openGymModal('coachModal')">
+        دخول الكابتن
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- نافذة المتدرب -->
+<div id="traineeModal" class="gym-modal">
+
+  <div class="gym-modal-box">
+
+    <span class="gym-close" onclick="closeGymModal('traineeModal')">
+      ×
+    </span>
+
+    <h2>🧑‍💪 تسجيل المتدرب</h2>
+
+    <input class="gym-input" id="traineeName"
+           type="text"
+           placeholder="اسم المتدرب">
+
+    <input class="gym-input" id="traineeAge"
+           type="number"
+           placeholder="العمر">
+
+    <input class="gym-input" id="traineePhone"
+           type="tel"
+           placeholder="رقم الهاتف">
+
+    <label>تاريخ بداية الاشتراك</label>
+    <input class="gym-input" id="traineeStart"
+           type="date">
+
+    <label>تاريخ نهاية الاشتراك</label>
+    <input class="gym-input" id="traineeEnd"
+           type="date">
+
+    <input class="gym-input" id="traineeCoach"
+           type="text"
+           placeholder="اسم الكابتن">
+
+    <button class="gym-submit" onclick="saveTrainee()">
+      حفظ بيانات المتدرب
+    </button>
+
+  </div>
+</div>
+
+
+<!-- نافذة الكابتن -->
+<div id="coachModal" class="gym-modal">
+
+  <div class="gym-modal-box">
+
+    <span class="gym-close" onclick="closeGymModal('coachModal')">
+      ×
+    </span>
+
+    <h2>🧑‍🏫 حساب الكابتن</h2>
+
+    <input class="gym-input"
+           id="coachName"
+           type="text"
+           placeholder="اسم الكابتن">
+
+    <input class="gym-input"
+           id="coachPhone"
+           type="tel"
+           placeholder="رقم هاتف الكابتن">
+
+    <button class="gym-submit" onclick="saveCoach()">
+      دخول حساب الكابتن
+    </button>
+
+  </div>
+</div>
+
+
+<script>
+
+function openGymModal(id){
+  document.getElementById(id).style.display = "flex";
+}
+
+function closeGymModal(id){
+  document.getElementById(id).style.display = "none";
+}
+
+function saveTrainee(){
+
+  var name = document.getElementById("traineeName").value;
+  var age = document.getElementById("traineeAge").value;
+  var phone = document.getElementById("traineePhone").value;
+  var start = document.getElementById("traineeStart").value;
+  var end = document.getElementById("traineeEnd").value;
+  var coach = document.getElementById("traineeCoach").value;
+
+  if(!name || !phone || !start || !end){
+
+    alert("يرجى إدخال الاسم ورقم الهاتف وتاريخ بداية ونهاية الاشتراك.");
+
+    return;
+  }
+
+  var trainee = {
+    name:name,
+    age:age,
+    phone:phone,
+    start:start,
+    end:end,
+    coach:coach
+  };
+
+  localStorage.setItem("gymTrainee", JSON.stringify(trainee));
+
+  alert("تم حفظ بيانات المتدرب بنجاح ✅");
+
+  closeGymModal("traineeModal");
+}
+
+
+function saveCoach(){
+
+  var name = document.getElementById("coachName").value;
+  var phone = document.getElementById("coachPhone").value;
+
+  if(!name || !phone){
+
+    alert("يرجى إدخال اسم الكابتن ورقم الهاتف.");
+
+    return;
+  }
+
+  var coach = {
+    name:name,
+    phone:phone
+  };
+
+  localStorage.setItem("gymCoach", JSON.stringify(coach));
+
+  alert("تم إنشاء حساب الكابتن بنجاح ✅");
+
+  closeGymModal("coachModal");
+}
+
+</script>
+
 </body>
+
