@@ -884,10 +884,13 @@ function renderTrainees(list) {
 
     if (!container) return;
 
-    var trainees = list || JSON.parse(localStorage.getItem("gymTrainees") || "[]");
+    var trainees = list || JSON.parse(
+        localStorage.getItem("gymTrainees") || "[]"
+    );
 
     if (trainees.length === 0) {
-        container.innerHTML = "<p style='text-align:center;'>لا توجد بيانات متدربين حالياً</p>";
+        container.innerHTML =
+            "<p style='text-align:center;'>لا توجد بيانات متدربين حالياً</p>";
         return;
     }
 
@@ -899,7 +902,7 @@ function renderTrainees(list) {
         card.className = "gym-user-card";
 
         var photo = trainee.photo
-            ? "<img src='" + trainee.photo + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;margin-bottom:10px;'>"
+            ? "<img src='" + trainee.photo + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;'>"
             : "<div style='font-size:50px;'>🏋️</div>";
 
         card.innerHTML =
