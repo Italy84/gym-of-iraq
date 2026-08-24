@@ -9,158 +9,219 @@
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Tahoma,Arial,sans-serif;
-  background:#06101e;
-  color:#fff;
-  min-height:100vh;
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:#06101e;
+color:#fff;
+min-height:100vh;
 }
 
 header{
-  text-align:center;
-  padding:28px 15px 12px;
-  color:#70a0c7;
-  font-size:20px;
+text-align:center;
+padding:28px 15px 12px;
+color:#70a0c7;
+font-size:20px;
 }
 
 .title{
-  text-align:center;
-  color:#29ff00;
-  font-size:42px;
-  font-weight:900;
-  margin:18px 0 30px;
+text-align:center;
+color:#29ff00;
+font-size:42px;
+font-weight:900;
+margin:18px 0 30px;
 }
 
 .wrap{
-  max-width:900px;
-  margin:auto;
-  padding:15px;
+max-width:900px;
+margin:auto;
+padding:15px;
 }
 
 .card{
-  background:#1a2635;
-  border:2px solid #27ff00;
-  border-radius:28px;
-  padding:38px 28px;
-  margin:25px auto;
-  text-align:center;
-  box-shadow:0 0 20px rgba(39,255,0,.08);
+background:#1a2635;
+border:2px solid #27ff00;
+border-radius:28px;
+padding:38px 28px;
+margin:25px auto;
+text-align:center;
+box-shadow:0 0 20px rgba(39,255,0,.08);
 }
 
 .icon{
-  font-size:70px;
-  margin-bottom:15px;
+font-size:70px;
+margin-bottom:15px;
 }
 
 h2{
-  color:#29ff00;
-  font-size:36px;
-  margin:12px 0;
+color:#29ff00;
+font-size:36px;
+margin:12px 0;
 }
 
 p{
-  color:#d8dee7;
-  font-size:20px;
-  line-height:1.8;
+color:#d8dee7;
+font-size:20px;
+line-height:1.8;
 }
 
 button{
-  border:0;
-  border-radius:18px;
-  padding:17px 30px;
-  background:#19f000;
-  color:#071006;
-  font-size:22px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:8px;
+border:0;
+border-radius:18px;
+padding:17px 30px;
+background:#19f000;
+color:#071006;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+margin:8px;
 }
 
 button.secondary{
-  background:#33445a;
-  color:#fff;
+background:#33445a;
+color:#fff;
 }
 
 input,
 textarea,
 select{
-  width:100%;
-  padding:14px;
-  margin:8px 0 16px;
-  border-radius:12px;
-  border:2px solid #40546b;
-  background:#0b1726;
-  color:#fff;
-  font-size:18px;
+width:100%;
+padding:14px;
+margin:8px 0 16px;
+border-radius:12px;
+border:2px solid #40546b;
+background:#0b1726;
+color:#fff;
+font-size:18px;
 }
 
 label{
-  display:block;
-  text-align:right;
-  font-size:18px;
-  font-weight:bold;
-  color:#dfe7ef;
+display:block;
+text-align:right;
+font-size:18px;
+font-weight:bold;
+color:#dfe7ef;
 }
 
 .hidden{
-  display:none;
+display:none!important;
 }
 
 .panel{
-  background:#111d2b;
-  border-radius:20px;
-  padding:25px;
-  margin:20px 0;
+background:#111d2b;
+border-radius:20px;
+padding:25px;
+margin:20px 0;
 }
 
 .notice{
-  background:#4b3810;
-  color:#ffe38b;
-  border-radius:15px;
-  padding:18px;
-  margin-top:20px;
-  font-size:17px;
-  line-height:1.8;
+background:#4b3810;
+color:#ffe38b;
+border-radius:15px;
+padding:18px;
+margin-top:20px;
+font-size:17px;
+line-height:1.8;
 }
 
 .trainee{
-  background:#1a2635;
-  border:1px solid #36516b;
-  border-radius:18px;
-  padding:18px;
-  margin:14px 0;
-  text-align:right;
+background:#1a2635;
+border:1px solid #36516b;
+border-radius:18px;
+padding:18px;
+margin:14px 0;
+text-align:right;
+}
+
+.trainee .photos{
+display:flex;
+gap:10px;
+float:right;
+margin-left:15px;
 }
 
 .trainee img{
-  width:90px;
-  height:90px;
-  object-fit:cover;
-  border-radius:50%;
-  float:right;
-  margin-left:15px;
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:50%;
 }
 
-.trainee:after{
-  content:"";
-  display:block;
-  clear:both;
+.trainee .body:after{
+content:"";
+display:block;
+clear:both;
 }
 
-.small{
-  font-size:14px;
-  color:#9fb0c0;
+.badge{
+display:inline-block;
+padding:5px 10px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+}
+
+.active{
+background:#123d24;
+color:#57ff89;
+}
+
+.soon{
+background:#4b3a12;
+color:#ffd85e;
+}
+
+.expired{
+background:#4b151b;
+color:#ff7c87;
+}
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:5px;
 }
 
 .danger{
-  background:#a82222;
-  color:#fff;
+background:#a82222;
+color:#fff;
 }
 
 footer{
-  text-align:center;
-  color:#7890a5;
-  padding:35px 10px;
+text-align:center;
+color:#7890a5;
+padding:35px 10px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.search{
+margin-bottom:15px;
+}
+
+@media(max-width:650px){
+
+.title{
+font-size:32px;
+}
+
+.card{
+padding:25px 18px;
+}
+
+button{
+width:100%;
+margin:6px 0;
+}
+
+.row{
+display:block;
+}
+
 }
 </style>
 </head>
@@ -171,48 +232,54 @@ footer{
 🇮🇶 Gym of Iraq — جميع الحقوق محفوظة © 2026
 </header>
 
+
 <div id="home" class="wrap">
 
-  <div class="title">
-    نظام إدارة الجيم
-  </div>
-
-  <section class="card">
-
-    <div class="icon">🏋️</div>
-
-    <h2>
-      حساب المتدرب
-    </h2>
-
-    <p>
-      تسجيل بيانات المتدرب ومتابعة الاشتراك وتاريخ الانتهاء.
-    </p>
-
-    <button onclick="show('traineeLogin')">
-      دخول المتدرب
-    </button>
-
-  </section>
+<div class="title">
+نظام إدارة الجيم
+</div>
 
 
-  <section class="card">
+<section class="card">
 
-    <div class="icon">👩‍🏫</div>
+<div class="icon">
+🏋️
+</div>
 
-    <h2>
-      حساب الكابتن
-    </h2>
+<h2>
+حساب المتدرب
+</h2>
 
-    <p>
-      إضافة المتدربين ومتابعة بياناتهم واشتراكاتهم.
-    </p>
+<p>
+دخول المتدرب ومتابعة بياناته واشتراكه وتطوره.
+</p>
 
-    <button onclick="show('coachLogin')">
-      دخول الكابتن
-    </button>
+<button id="openTraineeLogin">
+دخول المتدرب
+</button>
 
-  </section>
+</section>
+
+
+<section class="card">
+
+<div class="icon">
+👨‍🏫
+</div>
+
+<h2>
+حساب الكابتن
+</h2>
+
+<p>
+إضافة المتدربين وإدارة بياناتهم واشتراكاتهم.
+</p>
+
+<button id="openCoachLogin">
+دخول الكابتن
+</button>
+
+</section>
 
 </div>
 
@@ -221,48 +288,47 @@ footer{
 
 <div id="traineeLogin" class="wrap hidden">
 
-  <div class="card">
+<div class="card">
 
-    <h2>
-      دخول المتدرب
-    </h2>
+<h2>
+دخول المتدرب
+</h2>
 
-    <p>
-      أدخل رقم الهاتف والرمز الخاص بك.
-    </p>
+<p>
+أدخل رقم الهاتف والرمز الخاص بك.
+</p>
 
-    <label>
-      رقم الهاتف
-    </label>
+<label>
+رقم الهاتف
+</label>
 
-    <input
-      id="tPhone"
-      type="text"
-      placeholder="رقم الهاتف"
-    >
+<input
+id="tPhone"
+type="text"
+placeholder="رقم الهاتف"
 
-    <label>
-      الرمز
-    </label>
 
-    <input
-      id="tPass"
-      type="password"
-      placeholder="الرمز"
-    >
+<label>
+الرمز
+</label>
 
-    <button onclick="traineeLogin()">
-      دخول
-    </button>
+<input
+id="tPass"
+type="password"
+placeholder="الرمز"
 
-    <button
-      class="secondary"
-      onclick="goHome()"
-    >
-      رجوع
-    </button>
 
-  </div>
+<button id="traineeLoginBtn">
+دخول
+</button>
+
+<button
+class="secondary backHome"
+
+رجوع
+</button>
+
+</div>
 
 </div>
 
@@ -271,49 +337,48 @@ footer{
 
 <div id="coachLogin" class="wrap hidden">
 
-  <div class="card">
+<div class="card">
 
-    <h2>
-      دخول الكابتن
-    </h2>
+<h2>
+دخول الكابتن
+</h2>
 
-    <p>
-      بيانات الدخول الافتراضية:
-      captain / 1234
-    </p>
+<p>
+بيانات الدخول الافتراضية:
+captain / 1234
+</p>
 
-    <label>
-      اسم المستخدم
-    </label>
+<label>
+اسم المستخدم
+</label>
 
-    <input
-      id="cUser"
-      type="text"
-      placeholder="اسم المستخدم"
-    >
+<input
+id="cUser"
+type="text"
+placeholder="اسم المستخدم"
 
-    <label>
-      كلمة المرور
-    </label>
 
-    <input
-      id="cPass"
-      type="password"
-      placeholder="كلمة المرور"
-    >
+<label>
+كلمة المرور
+</label>
 
-    <button onclick="coachLogin()">
-      دخول
-    </button>
+<input
+id="cPass"
+type="password"
+placeholder="كلمة المرور"
 
-    <button
-      class="secondary"
-      onclick="goHome()"
-    >
-      رجوع
-    </button>
 
-  </div>
+<button id="coachLoginBtn">
+دخول
+</button>
+
+<button
+class="secondary backHome"
+
+رجوع
+</button>
+
+</div>
 
 </div>
 
@@ -322,166 +387,198 @@ footer{
 
 <div id="coachPanel" class="wrap hidden">
 
-  <div class="card">
+<div class="card">
 
-    <h2>
-      لوحة الكابتن
-    </h2>
+<h2>
+لوحة الكابتن
+</h2>
 
-    <p>
-      إضافة متدرب جديد ومتابعة جميع المتدربين.
-    </p>
-
-
-    <div class="panel">
-
-      <h2 style="font-size:27px">
-        إضافة متدرب
-      </h2>
+<p>
+إضافة المتدربين ومتابعة جميع بياناتهم.
+</p>
 
 
-      <label>
-        اسم المتدرب *
-      </label>
+<div class="panel">
 
-      <input
-        id="name"
-        placeholder="اسم المتدرب"
-      >
+<h2 style="font-size:27px">
+إضافة / تعديل متدرب
+</h2>
 
-
-      <label>
-        العمر
-      </label>
-
-      <input
-        id="age"
-        type="number"
-        placeholder="العمر"
-      >
+<input
+id="editId"
+type="hidden"
 
 
-      <label>
-        رقم الهاتف *
-      </label>
 
-      <input
-        id="phone"
-        placeholder="رقم الهاتف"
-      >
+<label>
+اسم المتدرب *
+</label>
 
-
-      <label>
-        تاريخ بداية الاشتراك *
-      </label>
-
-      <input
-        id="start"
-        type="date"
-      >
+<input
+id="name"
+placeholder="اسم المتدرب"
 
 
-      <label>
-        تاريخ انتهاء الاشتراك *
-      </label>
 
-      <input
-        id="end"
-        type="date"
-      >
+<label>
+العمر
+</label>
 
-
-      <label>
-        المدرب / الكابتن
-      </label>
-
-      <input
-        id="coach"
-        placeholder="اسم المدرب"
-      >
+<input
+id="age"
+type="number"
+placeholder="العمر"
 
 
-      <label>
-        الوزن بالكيلو
-      </label>
 
-      <input
-        id="weight"
-        type="number"
-        placeholder="الوزن"
-      >
+<label>
+رقم الهاتف *
+</label>
 
-
-      <label>
-        الطول بالسنتيمتر
-      </label>
-
-      <input
-        id="height"
-        type="number"
-        placeholder="الطول"
-      >
+<input
+id="phone"
+placeholder="رقم الهاتف"
 
 
-      <label>
-        صورة المتدرب
-      </label>
 
-      <input
-        id="photo"
-        type="file"
-        accept="image/*"
-      >
+<label>
+تاريخ بداية الاشتراك *
+</label>
 
-
-      <label>
-        الصورة الشخصية
-      </label>
-
-      <input
-        id="profilePhoto"
-        type="file"
-        accept="image/*"
-      >
+<input
+id="start"
+type="date"
 
 
-      <label>
-        ملاحظات
-      </label>
 
-      <textarea
-        id="notes"
-        rows="4"
-        placeholder="ملاحظات عن المتدرب"
-      ></textarea>
+<label>
+تاريخ انتهاء الاشتراك *
+</label>
 
-
-      <button onclick="saveTrainee()">
-        حفظ بيانات المتدرب
-      </button>
-
-    </div>
+<input
+id="end"
+type="date"
 
 
-    <div class="panel">
 
-      <h2 style="font-size:27px">
-        المتدربون
-      </h2>
+<label>
+المدرب / الكابتن
+</label>
 
-      <div id="list"></div>
+<input
+id="coach"
+placeholder="اسم المدرب"
 
-    </div>
 
 
-    <button
-      class="secondary"
-      onclick="goHome()"
-    >
-      تسجيل الخروج
-    </button>
+<label>
+الوزن بالكيلو
+</label>
 
-  </div>
+<input
+id="weight"
+type="number"
+step="0.1"
+placeholder="الوزن"
+
+
+
+<label>
+الطول بالسنتيمتر
+</label>
+
+<input
+id="height"
+type="number"
+step="0.1"
+placeholder="الطول"
+
+
+
+<label>
+صورة المتدرب / التطور
+</label>
+
+<input
+id="photo"
+type="file"
+accept="image/*"
+
+
+
+<label>
+الصورة الشخصية للوجه
+</label>
+
+<input
+id="profilePhoto"
+type="file"
+accept="image/*"
+
+
+
+<label>
+رمز دخول المتدرب
+</label>
+
+<input
+id="traineePass"
+type="text"
+value="1234"
+placeholder="رمز الدخول"
+
+
+
+<label>
+ملاحظات
+</label>
+
+<textarea
+id="notes"
+rows="4"
+placeholder="ملاحظات عن المتدرب"
+</textarea>
+
+
+
+<button id="saveBtn">
+💾 حفظ بيانات المتدرب
+</button>
+
+<button
+id="clearFormBtn"
+class="secondary"
+
+تفريغ النموذج
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h2 style="font-size:27px">
+المتدربون
+</h2>
+
+<input
+id="search"
+class="search"
+placeholder="ابحث بالاسم أو الهاتف أو الكابتن"
+
+
+<div id="list"></div>
+
+</div>
+
+
+<button
+class="secondary backHome"
+
+تسجيل الخروج
+</button>
+
+</div>
 
 </div>
 
@@ -490,22 +587,21 @@ footer{
 
 <div id="traineePanel" class="wrap hidden">
 
-  <div class="card">
+<div class="card">
 
-    <h2>
-      بيانات المتدرب
-    </h2>
+<h2>
+بيانات المتدرب
+</h2>
 
-    <div id="myData"></div>
+<div id="myData"></div>
 
-    <button
-      class="secondary"
-      onclick="goHome()"
-    >
-      رجوع
-    </button>
+<button
+class="secondary backHome"
 
-  </div>
+تسجيل الخروج
+</button>
+
+</div>
 
 </div>
 
@@ -520,64 +616,1144 @@ Gym of Iraq 🇮🇶 — جميع الحقوق محفوظة © 2026
 "use strict";
 
 
-const STORAGE_KEY = "gymOfIraqTrainees";
+const STORAGE_KEY =
+"gymOfIraqTraineesV4";
 
 
-function getTrainees(){
+let trainees =
+loadTrainees();
 
-  try{
 
-    return JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || "[]"
-    );
+function loadTrainees(){
 
-  }catch(e){
+try{
 
-    return [];
+const raw =
+localStorage.getItem(
+STORAGE_KEY
+);
 
-  }
+return raw
+? JSON.parse(raw)
+: [];
+
+}catch(e){
+
+return [];
+
+}
 
 }
 
 
-function setTrainees(arr){
+function saveStorage(){
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(arr)
-  );
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(trainees)
+);
+
+}
+
+
+function $(id){
+
+return document.getElementById(id);
 
 }
 
 
 function show(id){
 
-  document
-    .querySelectorAll(".wrap")
-    .forEach(x =>
-      x.classList.add("hidden")
-    );
+document
+.querySelectorAll(".wrap")
+.forEach(
+el =>
+el.classList.add("hidden")
+);
 
-  document
-    .getElementById(id)
-    .classList.remove("hidden");
+$(id)
+.classList.remove("hidden");
 
-  window.scrollTo(0,0);
+window.scrollTo(
+0,
+0
+);
 
 }
 
 
 function goHome(){
 
-  show("home");
+show("home");
 
 }
 
 
-/* دخول الكابتن */
+function esc(value){
+
+return String(
+value ?? ""
+).replace(
+/[&<>"']/g,
+function(m){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[m];
+
+}
+);
+
+}
+
+
+function readImage(input){
+
+return new Promise(
+function(resolve){
+
+const file =
+input.files &&
+input.files[0];
+
+if(!file){
+
+resolve("");
+
+return;
+
+}
+
+const reader =
+new FileReader();
+
+reader.onload =
+function(e){
+
+resolve(
+e.target.result
+);
+
+};
+
+reader.onerror =
+function(){
+
+resolve("");
+
+};
+
+reader.readAsDataURL(
+file
+);
+
+}
+);
+
+}
+
+
+function getStatus(end){
+
+if(!end){
+
+return {
+className:"expired",
+text:"بدون تاريخ",
+days:0
+};
+
+}
+
+const today =
+new Date();
+
+today.setHours(
+0,
+0,
+0,
+0
+);
+
+const d =
+new Date(
+end +
+"T00:00:00"
+);
+
+const days =
+Math.ceil(
+(d - today) /
+86400000
+);
+
+
+if(days < 0){
+
+return {
+className:"expired",
+text:"منتهي",
+days:days
+};
+
+}
+
+
+if(days <= 7){
+
+return {
+className:"soon",
+text:
+days === 0
+? "ينتهي اليوم"
+: "متبقي " +
+days +
+" يوم",
+days:days
+};
+
+}
+
+
+return {
+className:"active",
+text:"فعال",
+days:days
+};
+
+}
+
+
+function clearForm(){
+
+$("editId").value="";
+
+$("name").value="";
+
+$("age").value="";
+
+$("phone").value="";
+
+$("start").value="";
+
+$("end").value="";
+
+$("coach").value="";
+
+$("weight").value="";
+
+$("height").value="";
+
+$("photo").value="";
+
+$("profilePhoto").value="";
+
+$("traineePass").value="1234";
+
+$("notes").value="";
+
+$("saveBtn").textContent =
+"💾 حفظ بيانات المتدرب";
+
+}
+
+
+async function saveTrainee(){
+
+const name =
+$("name")
+.value
+.trim();
+
+const phone =
+$("phone")
+.value
+.trim();
+
+const start =
+$("start")
+.value;
+
+const end =
+$("end")
+.value;
+
+const coach =
+$("coach")
+.value
+.trim();
+
+const editId =
+$("editId")
+.value;
+
+
+if(
+!name ||
+!phone ||
+!start ||
+!end
+){
+
+alert(
+"يرجى إدخال اسم المتدرب ورقم الهاتف وتاريخ البداية والنهاية."
+);
+
+return;
+
+}
+
+
+if(
+new Date(end) <
+new Date(start)
+){
+
+alert(
+"تاريخ الانتهاء لا يمكن أن يكون قبل تاريخ البداية."
+);
+
+return;
+
+}
+
+
+const duplicate =
+trainees.find(
+t =>
+t.phone === phone &&
+String(t.id) !==
+String(editId)
+);
+
+
+if(duplicate){
+
+alert(
+"رقم الهاتف موجود مسبقاً لمتدرب آخر."
+);
+
+return;
+
+}
+
+
+const old =
+editId
+?
+trainees.find(
+t =>
+String(t.id) ===
+String(editId)
+)
+: null;
+
+
+let photo =
+old
+?
+(old.photo || "")
+: "";
+
+
+let profilePhoto =
+old
+?
+(old.profilePhoto || "")
+: "";
+
+
+try{
+
+if(
+$("photo").files[0]
+){
+
+photo =
+await readImage(
+$("photo")
+);
+
+}
+
+
+if(
+$("profilePhoto")
+.files[0]
+){
+
+profilePhoto =
+await readImage(
+$("profilePhoto")
+);
+
+}
+
+}catch(e){
+
+alert(
+"تعذر قراءة الصورة."
+);
+
+return;
+
+}
+
+
+const trainee = {
+
+id:
+editId
+?
+Number(editId)
+:
+Date.now(),
+
+name:name,
+
+age:
+$("age").value,
+
+phone:phone,
+
+start:start,
+
+end:end,
+
+coach:coach,
+
+weight:
+$("weight").value,
+
+height:
+$("height").value,
+
+photo:photo,
+
+profilePhoto:
+profilePhoto,
+
+pass:
+$("traineePass")
+.value
+.trim()
+||
+"1234",
+
+notes:
+$("notes")
+.value
+.trim(),
+
+createdAt:
+old
+?
+old.createdAt
+:
+Date.now(),
+
+updatedAt:
+Date.now()
+
+};
+
+
+if(editId){
+
+const index =
+trainees.findIndex(
+t =>
+String(t.id) ===
+String(editId)
+);
+
+if(index >= 0){
+
+trainees[index] =
+trainee;
+
+}
+
+}else{
+
+trainees.unshift(
+trainee
+);
+
+}
+
+
+try{
+
+saveStorage();
+
+}catch(e){
+
+alert(
+"تعذر الحفظ. حجم الصور كبير جداً؛ جرّب صوراً أصغر."
+);
+
+return;
+
+}
+
+
+alert(
+editId
+?
+"تم تعديل بيانات المتدرب بنجاح."
+:
+"تم حفظ المتدرب بنجاح."
+);
+
+clearForm();
+
+renderTrainees();
+
+}
+
+
+function renderTrainees(){
+
+const list =
+$("list");
+
+const q =
+$("search")
+.value
+.trim()
+.toLowerCase();
+
+
+const filtered =
+trainees.filter(
+t => {
+
+return [
+t.name,
+t.phone,
+t.coach
+]
+.some(
+v =>
+String(
+v || ""
+)
+.toLowerCase()
+.includes(q)
+);
+
+}
+);
+
+
+if(!filtered.length){
+
+list.innerHTML =
+"<p style='text-align:center'>لا توجد بيانات مطابقة.</p>";
+
+return;
+
+}
+
+
+list.innerHTML =
+filtered.map(
+function(t){
+
+const s =
+getStatus(
+t.end
+);
+
+
+const profile =
+t.profilePhoto
+
+?
+
+"<img src='" +
+esc(t.profilePhoto) +
+"' alt='الصورة الشخصية'>"
+
+:
+
+"<div style='width:90px;height:90px;border-radius:50%;background:#0b1726;display:grid;place-items:center;font-size:40px'>👤</div>";
+
+
+const body =
+t.photo
+
+?
+
+"<img src='" +
+esc(t.photo) +
+"' alt='صورة التطور' style='width:90px;height:90px;object-fit:cover;border-radius:12px'>"
+
+:
+
+"<div style='width:90px;height:90px;border-radius:12px;background:#0b1726;display:grid;place-items:center;font-size:40px'>🏋️</div>";
+
+
+return `
+
+<div class="trainee">
+
+<div class="photos">
+
+${profile}
+
+${body}
+
+</div>
+
+<div class="body">
+
+<div class="row">
+
+<h3>
+${esc(t.name)}
+</h3>
+
+<span class="badge ${s.className}">
+${esc(s.text)}
+</span>
+
+</div>
+
+<p>
+📞 الهاتف:
+${esc(t.phone)}
+</p>
+
+<p>
+🎂 العمر:
+${esc(t.age || "-")}
+</p>
+
+<p>
+👨‍🏫 الكابتن:
+${esc(t.coach || "-")}
+</p>
+
+<p>
+📅 الاشتراك:
+${esc(t.start)}
+→
+${esc(t.end)}
+</p>
+
+<p>
+⚖️ الوزن:
+${esc(t.weight || "-")}
+كغم
+|
+📏 الطول:
+${esc(t.height || "-")}
+سم
+</p>
+
+<p>
+🔐 رمز المتدرب:
+${esc(t.pass || "1234")}
+</p>
+
+<div class="actions">
+
+<button data-view="${t.id}">
+عرض
+</button>
+
+<button
+data-edit="${t.id}"
+class="secondary"
+
+تعديل
+</button>
+
+<button
+data-delete="${t.id}"
+class="danger"
+
+حذف
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+).join("");
+
+
+list
+.querySelectorAll(
+"[data-view]"
+)
+.forEach(
+btn => {
+
+btn.addEventListener(
+"click",
+function(){
+
+viewTrainee(
+Number(
+btn.dataset.view
+)
+);
+
+}
+);
+
+}
+);
+
+
+list
+.querySelectorAll(
+"[data-edit]"
+)
+.forEach(
+btn => {
+
+btn.addEventListener(
+"click",
+function(){
+
+editTrainee(
+Number(
+btn.dataset.edit
+)
+);
+
+}
+);
+
+}
+);
+
+
+list
+.querySelectorAll(
+"[data-delete]"
+)
+.forEach(
+btn => {
+
+btn.addEventListener(
+"click",
+function(){
+
+deleteTrainee(
+Number(
+btn.dataset.delete
+)
+);
+
+}
+);
+
+}
+);
+
+}
+
+
+function editTrainee(id){
+
+const t =
+trainees.find(
+x =>
+x.id === id
+);
+
+if(!t)return;
+
+
+$("editId").value =
+t.id;
+
+$("name").value =
+t.name || "";
+
+$("age").value =
+t.age || "";
+
+$("phone").value =
+t.phone || "";
+
+$("start").value =
+t.start || "";
+
+$("end").value =
+t.end || "";
+
+$("coach").value =
+t.coach || "";
+
+$("weight").value =
+t.weight || "";
+
+$("height").value =
+t.height || "";
+
+$("traineePass").value =
+t.pass || "1234";
+
+$("notes").value =
+t.notes || "";
+
+$("photo").value="";
+
+$("profilePhoto").value="";
+
+
+$("saveBtn").textContent =
+"💾 حفظ التعديل";
+
+
+window.scrollTo(
+0,
+0
+);
+
+}
+
+
+function deleteTrainee(id){
+
+const t =
+trainees.find(
+x =>
+x.id === id
+);
+
+if(!t)return;
+
+
+if(
+!confirm(
+"هل تريد حذف المتدرب " +
+t.name +
+"؟"
+)
+){
+
+return;
+
+}
+
+
+trainees =
+trainees.filter(
+x =>
+x.id !== id
+);
+
+
+saveStorage();
+
+renderTrainees();
+
+}
+
+
+function viewTrainee(id){
+
+const t =
+trainees.find(
+x =>
+x.id === id
+);
+
+if(!t)return;
+
+
+const s =
+getStatus(
+t.end
+);
+
+
+const profile =
+t.profilePhoto
+
+?
+
+"<img src='" +
+esc(t.profilePhoto) +
+"' style='width:130px;height:130px;object-fit:cover;border-radius:50%;border:2px solid #29ff00'>"
+
+:
+
+"<div style='font-size:80px'>👤</div>";
+
+
+const photo =
+t.photo
+
+?
+
+"<img src='" +
+esc(t.photo) +
+"' style='width:130px;height:130px;object-fit:cover;border-radius:18px;border:2px solid #29ff00'>"
+
+:
+
+"";
+
+
+$("myData").innerHTML = `
+
+<div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px">
+
+${profile}
+
+${photo}
+
+</div>
+
+<h2>
+${esc(t.name)}
+</h2>
+
+<p>
+<b>حالة الاشتراك:</b>
+
+<span class="badge ${s.className}">
+${esc(s.text)}
+</span>
+
+</p>
+
+<p>
+📞 رقم الهاتف:
+${esc(t.phone)}
+</p>
+
+<p>
+🎂 العمر:
+${esc(t.age || "-")}
+</p>
+
+<p>
+📅 بداية الاشتراك:
+${esc(t.start)}
+</p>
+
+<p>
+📅 نهاية الاشتراك:
+${esc(t.end)}
+</p>
+
+<p>
+👨‍🏫 الكابتن:
+${esc(t.coach || "-")}
+</p>
+
+<p>
+⚖️ الوزن:
+${esc(t.weight || "-")}
+كغم
+</p>
+
+<p>
+📏 الطول:
+${esc(t.height || "-")}
+سم
+</p>
+
+<p>
+📝 الملاحظات:
+${esc(t.notes || "لا توجد ملاحظات")}
+</p>
+
+`;
+
+
+show(
+"traineePanel"
+);
+
+}
+
+
+function traineeLogin(){
+
+const phone =
+$("tPhone")
+.value
+.trim();
+
+const pass =
+$("tPass")
+.value;
+
+
+const t =
+trainees.find(
+x =>
+x.phone === phone &&
+x.pass === pass
+);
+
+
+if(!t){
+
+alert(
+"رقم الهاتف أو الرمز غير صحيح."
+);
+
+return;
+
+}
+
+
+viewTrainee(
+t.id
+);
+
+}
+
 
 function coachLogin(){
 
-  const u =
-    document
-      .getElementBy
+const u =
+$("cUser")
+.value
+.trim();
+
+const p =
+$("cPass")
+.value;
+
+
+if(
+(
+u === "captain" ||
+u === "trainer"
+)
+&&
+p === "1234"
+){
+
+$("search").value="";
+
+renderTrainees();
+
+show(
+"coachPanel"
+);
+
+}else{
+
+alert(
+"اسم المستخدم أو كلمة المرور غير صحيحة."
+);
+
+}
+
+}
+
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+$("openTraineeLogin")
+.addEventListener(
+"click",
+function(){
+
+show(
+"traineeLogin"
+);
+
+}
+);
+
+
+$("openCoachLogin")
+.addEventListener(
+"click",
+function(){
+
+show(
+"coachLogin"
+);
+
+}
+);
+
+
+$("traineeLoginBtn")
+.addEventListener(
+"click",
+traineeLogin
+);
+
+
+$("coachLoginBtn")
+.addEventListener(
+"click",
+coachLogin
+);
+
+
+$("saveBtn")
+.addEventListener(
+"click",
+saveTrainee
+);
+
+
+$("clearFormBtn")
+.addEventListener(
+"click",
+clearForm
+);
+
+
+$("search")
+.addEventListener(
+"input",
+renderTrainees
+);
+
+
+document
+.querySelectorAll(
+".backHome"
+)
+.forEach(
+btn => {
+
+btn.addEventListener(
+"click",
+goHome
+);
+
+}
+);
+
+
+renderTrainees();
+
+});
+
+</script>
+
+</body>
+</html>
