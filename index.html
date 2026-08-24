@@ -1,1197 +1,204 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gym of Iraq | جيم العراق</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gym of Iraq</title>
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial,Tahoma,sans-serif;
-    background:#07111f;
-    color:#fff;
-    line-height:1.7;
-}
-
-header{
-    background:linear-gradient(135deg,#0b1728,#102b45);
-    padding:20px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #1d405f;
-}
-
-.logo{
-    font-size:25px;
-    font-weight:bold;
-    color:#35d07f;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin:0 10px;
-    font-size:15px;
-}
-
-nav a:hover{
-    color:#35d07f;
-}
-
-.hero{
-    min-height:560px;
-    padding:80px 7%;
-    display:flex;
-    align-items:center;
-    background:
-    radial-gradient(circle at 80% 30%,rgba(53,208,127,.18),transparent 35%),
-    linear-gradient(135deg,#07111f,#0b2034);
-}
-
-.hero-content{
-    max-width:720px;
-}
-
-.badge{
-    display:inline-block;
-    background:#123a35;
-    color:#35d07f;
-    padding:7px 15px;
-    border-radius:30px;
-    margin-bottom:20px;
-    font-size:14px;
-}
-
-h1{
-    font-size:52px;
-    line-height:1.2;
-    margin-bottom:20px;
-}
-
-h1 span{
-    color:#35d07f;
-}
-
-.hero p{
-    color:#b8c7d6;
-    font-size:19px;
-    margin-bottom:30px;
-}
-
-.btn{
-    display:inline-block;
-    background:#35d07f;
-    color:#06121e;
-    padding:13px 25px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.btn:hover{
-    background:#51e695;
-}
-
-.btn.secondary{
-    background:#142b40;
-    color:#fff;
-    margin-right:10px;
-}
-
-section{
-    padding:70px 7%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-title h2{
-    font-size:34px;
-    margin-bottom:8px;
-}
-
-.section-title p{
-    color:#91a5b8;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    background:#0d1d2e;
-    border:1px solid #1b344b;
-    border-radius:16px;
-    padding:28px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#35d07f;
-}
-
-.icon{
-    font-size:38px;
-    margin-bottom:12px;
-}
-
-.card h3{
-    margin-bottom:8px;
-    font-size:21px;
-}
-
-.card p{
-    color:#9db0c2;
-    font-size:15px;
-}
-
-.about{
-    background:#091827;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-top:30px;
-}
-
-.stat{
-    background:#10253a;
-    padding:25px;
-    border-radius:14px;
-    text-align:center;
-}
-
-.stat strong{
-    display:block;
-    font-size:30px;
-    color:#35d07f;
-}
-
-.stat span{
-    color:#9db0c2;
-}
-
-.ai{
-    background:
-    radial-gradient(circle at 20% 50%,rgba(53,208,127,.12),transparent 35%),
-    #07111f;
-}
-
-.ai-box{
-    max-width:800px;
-    margin:auto;
-    background:#0d1d2e;
-    border:1px solid #21425d;
-    border-radius:20px;
-    padding:35px;
-    text-align:center;
-}
-
-.ai-box h2{
-    font-size:32px;
-    margin-bottom:12px;
-}
-
-.ai-box p{
-    color:#a9bbca;
-    margin-bottom:25px;
-}
-
-.start{
-    text-align:center;
-    background:#0d1d2e;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#7890a5;
-    border-top:1px solid #193147;
-    background:#050d16;
-}
-
-#message{
-    display:none;
-    margin-top:20px;
-    background:#123a35;
-    color:#35d07f;
-    padding:12px;
-    border-radius:10px;
-}
-
-@media(max-width:800px){
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        text-align:center;
-    }
-
-    nav a{
-        display:inline-block;
-        margin:5px;
-    }
-
-    h1{
-        font-size:38px;
-    }
-
-    .hero{
-        padding:60px 6%;
-        min-height:500px;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:450px){
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-    .btn{
-        width:100%;
-        text-align:center;
-        margin:5px 0;
-    }
-
-    .btn.secondary{
-        margin-right:0;
-    }
-}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial;background:#06111f;color:#fff}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.hide{display:none!important}
+.wrap{max-width:1100px;width:94%;margin:auto}.login{min-height:100vh;display:grid;place-items:center;padding:20px}
+.card{background:#172332;border:1px solid #20ff00;border-radius:20px;padding:22px;box-shadow:0 12px 35px #0005}
+.login .card{width:min(500px,100%);text-align:right}.green{color:#20ff00}
+label{display:block;margin:12px 0 6px;font-weight:bold}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #405166;background:#0c1825;color:#fff}
+textarea{min-height:90px}.btn{background:#20ee00;color:#061006;border:0;border-radius:10px;padding:12px 18px;font-weight:bold;margin-top:10px}.danger{background:#d92d3a;color:white}.secondary{background:#263649;color:white}
+header{position:sticky;top:0;background:#071522;border-bottom:1px solid #20ff00;padding:15px;z-index:5}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{background:#182638;color:#fff;border:0;padding:11px 15px;border-radius:10px}.tab.active{background:#20ee00;color:#061006}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat strong{display:block;font-size:30px;margin-top:7px}.section{margin:15px 0}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}
+.list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.trainee{background:#172332;border:1px solid #304257;border-radius:16px;padding:16px}
+.photos{display:flex;gap:8px}.photos img,.avatar{width:78px;height:78px;object-fit:cover;border-radius:12px;background:#0b1622;border:1px solid #405166}.avatar{display:grid;place-items:center;font-size:35px}
+.badge{padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}.active{background:#123d24;color:#57ff89}.soon{background:#4b3a12;color:#ffd85e}.expired{background:#4b151b;color:#ff7c87}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}.actions{display:flex;gap:7px;flex-wrap:wrap}.muted{color:#aeb9c7}.notice{background:#3d2f0e;color:#ffe28b;padding:12px;border-radius:10px;margin-top:15px}
+.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:20px;z-index:20}.modal .card{width:min(750px,100%);max-height:90vh;overflow:auto}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.list{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid,.list,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}}
 </style>
 </head>
-
 <body>
 
-<header>
-    <div class="logo">🇮🇶 Gym of Iraq</div>
-
-    <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#services">الخدمات</a>
-        <a href="#ai">المساعد AI</a>
-        <a href="#about">عن المشروع</a>
-    </nav>
-</header>
-
-
-<section class="hero" id="home">
-    <div class="hero-content">
-
-        <div class="badge">منصة اللياقة العراقية الجديدة 🇮🇶</div>
-
-        <h1>
-            طوّر جسمك مع
-            <span>Gym of Iraq</span>
-        </h1>
-
-        <p>
-            منصة ذكية تجمع المدربين والعملاء والبرامج التدريبية
-            والتغذية والمتابعة في مكان واحد.
-        </p>
-
-        <a href="#services" class="btn">اكتشف المنصة</a>
-
-        <a href="#ai" class="btn secondary">جرّب مساعد AI</a>
-
-    </div>
-</section>
-
-
-<section id="services">
-
-    <div class="section-title">
-        <h2>خدمات المنصة</h2>
-        <p>كل ما يحتاجه المدرب والرياضي في مكان واحد</p>
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">🏋️</div>
-            <h3>برامج التدريب</h3>
-            <p>
-                إنشاء وتنظيم برامج تدريبية حسب هدف ومستوى كل مشترك.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🥗</div>
-            <h3>التغذية</h3>
-            <p>
-                تنظيم الوجبات والسعرات والبروتين والكربوهيدرات والدهون.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">👨‍🏫</div>
-            <h3>المدربين</h3>
-            <p>
-                مساحة خاصة للمدرب لإدارة المشتركين والبرامج والمتابعة.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">👤</div>
-            <h3>حساب العميل</h3>
-            <p>
-                ملف شخصي لمتابعة الوزن والقياسات والتمارين والتقدم.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📊</div>
-            <h3>متابعة التقدم</h3>
-            <p>
-                متابعة تطور الجسم والأوزان والقياسات والإنجازات.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🤖</div>
-            <h3>مساعد الذكاء الاصطناعي</h3>
-            <p>
-                مساعد ذكي يساعد المدرب والعميل في التدريب والتغذية.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="about" id="about">
-
-    <div class="section-title">
-        <h2>Gym of Iraq</h2>
-        <p>
-            مشروع عراقي نريد أن نحوله إلى منصة رياضية متكاملة.
-        </p>
-    </div>
-
-    <div class="stats">
-
-        <div class="stat">
-            <strong>24/7</strong>
-            <span>مساعدة ذكية</span>
-        </div>
-
-        <div class="stat">
-            <strong>AI</strong>
-            <span>ذكاء اصطناعي</span>
-        </div>
-
-        <div class="stat">
-            <strong>🇮🇶</strong>
-            <span>مصمم للعراق</span>
-        </div>
-
-        <div class="stat">
-            <strong>∞</strong>
-            <span>قابل للتطوير</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="ai" id="ai">
-
-    <div class="ai-box">
-
-        <div class="icon">🤖</div>
-
-        <h2>مساعد Gym of Iraq AI</h2>
-
-        <p>
-            قريبًا سيكون بإمكانك التحدث مع مساعد ذكي
-            للحصول على خطط تدريب وتغذية ومتابعة شخصية.
-        </p>
-
-        <button class="btn" onclick="startAI()">
-            ابدأ الآن 🚀
-        </button>
-
-        <div id="message">
-            ممتاز! المساعد الذكي قادم في المرحلة التالية 💪
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="start">
-
-    <div class="section-title">
-        <h2>جاهز تبدأ؟</h2>
-
-        <p>
-            هذه مجرد البداية. سنبني المنصة خطوة بخطوة.
-        </p>
-    </div>
-
-    <button class="btn" onclick="startApp()">
-        ابدأ رحلتك 💪
-    </button>
-
-    <div id="appMessage"></div>
-
-</section>
-
-
-<footer>
-    © 2026 Gym of Iraq 🇮🇶 — جميع الحقوق محفوظة
-</footer>
-
-
-<script>
-
-function startAI(){
-
-    var message = document.getElementById("message");
-
-    message.style.display = "block";
-
-    message.innerHTML =
-        "🚀 تم تشغيل المرحلة التجريبية! سنربط الذكاء الاصطناعي الحقيقي في المرحلة القادمة.";
-}
-
-
-function startApp(){
-
-    var box = document.getElementById("appMessage");
-
-    box.style.display = "block";
-
-    box.style.marginTop = "20px";
-
-    box.style.color = "#35d07f";
-
-    box.innerHTML =
-        "💪 أهلاً بك في Gym of Iraq! التسجيل والملفات الشخصية قادمة في الخطوة التالية.";
-}
-
-</script>
-
-    <style>
-.gym-users-section{
-  padding:40px 20px;
-  text-align:center;
-  direction:rtl;
-}
-
-.gym-users-title{
-  color:#39ff14;
-  font-size:30px;
-  margin-bottom:25px;
-}
-
-.gym-users-grid{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  flex-wrap:wrap;
-  max-width:900px;
-  margin:auto;
-}
-
-.gym-user-card{
-  width:280px;
-  padding:30px 20px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(57,255,20,0.35);
-  box-shadow:0 8px 25px rgba(0,0,0,0.25);
-  color:white;
-  transition:0.3s;
-}
-
-.gym-user-card:hover{
-  transform:translateY(-6px);
-  border-color:#39ff14;
-}
-
-.gym-user-icon{
-  font-size:55px;
-  margin-bottom:15px;
-}
-
-.gym-user-card h3{
-  color:#39ff14;
-  font-size:24px;
-  margin:10px 0;
-}
-
-.gym-user-card p{
-  color:#ddd;
-  margin-bottom:20px;
-}
-
-.gym-user-btn{
-  border:0;
-  padding:12px 25px;
-  border-radius:10px;
-  background:#39ff14;
-  color:#07111f;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:16px;
-}
-
-.gym-user-btn:hover{
-  background:#20d900;
-}
-
-.gym-modal{
-  display:none;
-  position:fixed;
-  z-index:9999;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.75);
-  align-items:center;
-  justify-content:center;
-  direction:rtl;
-}
-
-.gym-modal-box{
-  width:90%;
-  max-width:500px;
-  background:#101a2b;
-  padding:30px;
-  border-radius:18px;
-  color:white;
-  box-shadow:0 15px 50px rgba(0,0,0,0.5);
-}
-
-.gym-modal-box h2{
-  color:#39ff14;
-  text-align:center;
-  margin-bottom:25px;
-}
-
-.gym-input{
-  width:100%;
-  padding:12px;
-  margin:7px 0;
-  border-radius:8px;
-  border:1px solid #555;
-  background:#fff;
-  color:#111;
-  font-size:15px;
-}
-
-.gym-close{
-  float:left;
-  color:#fff;
-  font-size:25px;
-  cursor:pointer;
-}
-
-.gym-submit{
-  width:100%;
-  margin-top:15px;
-  padding:13px;
-  border:0;
-  border-radius:9px;
-  background:#39ff14;
-  color:#07111f;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-}
-</style>
-
-<section class="gym-users-section">
-
-  <h2 class="gym-users-title">نظام إدارة الجيم</h2>
-
-  <div class="gym-users-grid">
-
-    <div class="gym-user-card">
-      <div class="gym-user-icon">🏋️</div>
-      <h3>حساب المتدرب</h3>
-      <p>تسجيل بيانات المتدرب ومتابعة الاشتراك وتاريخ الانتهاء.</p>
-      <button class="gym-user-btn" onclick="openGymModal('traineeModal')">
-        دخول المتدرب
-      </button>
-    </div>
-
-    <div class="gym-user-card">
-      <div class="gym-user-icon">🧑‍🏫</div>
-      <h3>حساب الكابتن</h3>
-      <p>متابعة المتدربين ومعرفة الاشتراكات التي قاربت على الانتهاء.</p>
-      <button class="gym-user-btn" onclick="openGymModal('coachModal')">
-        دخول الكابتن
-      </button>
-    </div>
-
-  </div>
-</section>
-
-    <!-- قائمة المتدربين -->
-<section class="gym-trainees-list">
-
-  <h2 class="gym-users-title">قائمة المتدربين</h2>
-
-  <input
-    class="gym-input"
-    id="traineeSearch"
-    type="text"
-    placeholder="🔍 ابحث باسم المتدرب أو رقم الهاتف"
-    oninput="searchTrainees()"
-  >
-
-  <div id="traineeList"></div>
-
-</section>
-
-
-<!-- نافذة المتدرب -->
-<div id="traineeModal" class="gym-modal">
-
-  <div class="gym-modal-box">
-
-    <span class="gym-close" onclick="closeGymModal('traineeModal')">
-      ×
-    </span>
-
-    <h2>🧑‍💪 تسجيل المتدرب</h2>
-
-    <input class="gym-input" id="traineeName"
-           type="text"
-           placeholder="اسم المتدرب">
-
-    <input class="gym-input" id="traineeAge"
-           type="number"
-           placeholder="العمر">
-
-    <input class="gym-input" id="traineePhone"
-           type="tel"
-           placeholder="رقم الهاتف">
-
-    <label>تاريخ بداية الاشتراك</label>
-    <input class="gym-input" id="traineeStart"
-           type="date">
-
-    <label>تاريخ نهاية الاشتراك</label>
-    <input class="gym-input" id="traineeEnd"
-           type="date">
-
-    <input class="gym-input" id="traineeCoach"
-           type="text"
-           placeholder="اسم الكابتن">
-
-     <label>صورة المتدرب (اختياري)</label>
-<input class="gym-input" id="traineePhoto" type="file" accept="image/*">
-<label>الصورة الشخصية (اختياري)</label>
-<input class="gym-input" id="traineeProfilePhoto" type="file" accept="image/*">
-
-<label>الوزن (اختياري)</label>
-<input class="gym-input" id="traineeWeight" type="number" placeholder="الوزن بالكيلو">
-
-<label>الطول (اختياري)</label>
-<input class="gym-input" id="traineeHeight" type="number" placeholder="الطول بالسنتيمتر">
-
-<label>ملاحظات (اختياري)</label>
-<textarea class="gym-input" id="traineeNotes" placeholder="ملاحظات عن المتدرب"></textarea>
- 
-    <button class="gym-submit" onclick="saveTrainee()">
-      حفظ بيانات المتدرب
-    </button>
-
-  </div>
+<div id="login" class="login">
+<div class="card">
+<div style="font-size:60px;text-align:center">ðï¸</div>
+<h1 class="green" style="text-align:center">Gym of Iraq</h1>
+<p class="muted" style="text-align:center">ÙØ¸Ø§Ù Ø¥Ø¯Ø§Ø±Ø© Ø§ÙÙØ¯Ø±Ø¨ÙÙ ÙØ§ÙÙØªØ¯Ø±Ø¨ÙÙ ÙØ§ÙØ§Ø´ØªØ±Ø§ÙØ§Øª</p>
+<label>ÙÙØ¹ Ø§ÙØ­Ø³Ø§Ø¨</label>
+<select id="role"><option value="trainer">Ø­Ø³Ø§Ø¨ Ø§ÙÙØªØ¯Ø±Ø¨</option><option value="captain">Ø­Ø³Ø§Ø¨ Ø§ÙÙØ§Ø¨ØªÙ</option></select>
+<label>Ø§Ø³Ù Ø§ÙÙØ³ØªØ®Ø¯Ù</label><input id="user">
+<label>ÙÙÙØ© Ø§ÙÙØ±ÙØ±</label><input id="pass" type="password">
+<button class="btn" style="width:100%" onclick="login()">Ø¯Ø®ÙÙ</button>
+<p id="loginMsg" style="color:#ff7884;text-align:center"></p>
+<div class="notice">Ø¨ÙØ§ÙØ§Øª Ø§ÙØ¯Ø®ÙÙ Ø§ÙØ£ÙÙÙØ©:<br>Ø§ÙÙØ¯Ø±Ø¨: <b>trainer</b> / <b>1234</b><br>Ø§ÙÙØ§Ø¨ØªÙ: <b>captain</b> / <b>1234</b></div>
+</div>
 </div>
 
-
-<!-- نافذة الكابتن -->
-<div id="coachModal" class="gym-modal">
-
-  <div class="gym-modal-box">
-
-    <span class="gym-close" onclick="closeGymModal('coachModal')">
-      ×
-    </span>
-
-    <h2>🧑‍🏫 حساب الكابتن</h2>
-
-    <input class="gym-input"
-           id="coachName"
-           type="text"
-           placeholder="اسم الكابتن">
-
-    <input class="gym-input"
-           id="coachPhone"
-           type="tel"
-           placeholder="رقم هاتف الكابتن">
-
-    <button class="gym-submit" onclick="saveCoach()">
-      دخول حساب الكابتن
-    </button>
-
-  </div>
+<div id="app" class="hide">
+<header><div class="wrap top"><div><b class="green">ðï¸ Gym of Iraq</b><div id="welcome" class="muted"></div></div><button class="btn danger" style="margin:0" onclick="logout()">Ø®Ø±ÙØ¬</button></div></header>
+<main class="wrap">
+<div class="tabs">
+<button class="tab active" onclick="tab('dashboard',this)">Ø§ÙØ±Ø¦ÙØ³ÙØ©</button>
+<button class="tab" onclick="tab('trainees',this)">Ø§ÙÙØªØ¯Ø±Ø¨ÙÙ</button>
+<button id="addTab" class="tab" onclick="tab('add',this)">Ø¥Ø¶Ø§ÙØ© ÙØªØ¯Ø±Ø¨</button>
+<button class="tab" onclick="tab('subs',this)">Ø§ÙØ§Ø´ØªØ±Ø§ÙØ§Øª</button>
+<button class="tab" onclick="tab('settings',this)">Ø§ÙØ¥Ø¹Ø¯Ø§Ø¯Ø§Øª</button>
 </div>
 
+<section id="dashboard">
+<div class="grid">
+<div class="card stat">Ø¥Ø¬ÙØ§ÙÙ Ø§ÙÙØªØ¯Ø±Ø¨ÙÙ<strong id="total">0</strong></div>
+<div class="card stat">Ø§ÙÙØ´ØªØ±ÙÙÙ Ø­Ø§ÙÙØ§Ù<strong id="activeN">0</strong></div>
+<div class="card stat">ØªÙØªÙÙ Ø®ÙØ§Ù 7 Ø£ÙØ§Ù<strong id="soonN">0</strong></div>
+<div class="card stat">ÙÙØªÙÙØ©<strong id="expiredN">0</strong></div>
+</div>
+<div class="card section"><h2>Ø¢Ø®Ø± Ø§ÙÙØªØ¯Ø±Ø¨ÙÙ</h2><div id="latest"></div></div>
+</section>
+
+<section id="trainees" class="hide">
+<div class="card section"><h2>Ø§ÙÙØªØ¯Ø±Ø¨ÙÙ</h2><input id="search" placeholder="Ø¨Ø­Ø« Ø¨Ø§ÙØ§Ø³Ù Ø£Ù Ø§ÙÙØ§ØªÙ Ø£Ù Ø§ÙÙØ¯Ø±Ø¨" oninput="render()"><div id="list" class="list" style="margin-top:14px"></div></div>
+</section>
+
+<section id="add" class="hide">
+<div class="card section"><h2 id="formTitle">Ø¥Ø¶Ø§ÙØ© ÙØªØ¯Ø±Ø¨</h2>
+<form onsubmit="save(event)">
+<input id="editId" type="hidden">
+<div class="formgrid">
+<div><label>Ø§ÙØ§Ø³Ù *</label><input id="name" required></div>
+<div><label>Ø§ÙØ¹ÙØ±</label><input id="age" type="number"></div>
+<div><label>Ø§ÙÙØ§ØªÙ *</label><input id="phone" required></div>
+<div><label>Ø§ÙÙØ¯Ø±Ø¨ *</label><input id="coach" required></div>
+<div><label>Ø¨Ø¯Ø§ÙØ© Ø§ÙØ§Ø´ØªØ±Ø§Ù *</label><input id="start" type="date" required></div>
+<div><label>ÙÙØ§ÙØ© Ø§ÙØ§Ø´ØªØ±Ø§Ù *</label><input id="end" type="date" required></div>
+<div><label>Ø§ÙÙØ²Ù ÙØºÙ</label><input id="weight" type="number" step="0.1"></div>
+<div><label>Ø§ÙØ·ÙÙ Ø³Ù</label><input id="height" type="number" step="0.1"></div>
+<div><label>Ø§ÙØµÙØ±Ø© Ø§ÙØ´Ø®ØµÙØ©</label><input id="profilePhoto" type="file" accept="image/*"></div>
+<div><label>ØµÙØ±Ø© Ø§ÙÙØªØ¯Ø±Ø¨</label><input id="photo" type="file" accept="image/*"></div>
+<div class="full"><label>ÙÙØ§Ø­Ø¸Ø§Øª</label><textarea id="notes"></textarea></div>
+</div>
+<button class="btn">ð¾ Ø­ÙØ¸ Ø§ÙÙØªØ¯Ø±Ø¨</button><button type="button" class="btn secondary" onclick="resetForm()">ØªÙØ±ÙØº</button>
+</form></div>
+</section>
+
+<section id="subs" class="hide"><div class="card section"><h2>Ø­Ø§ÙØ© Ø§ÙØ§Ø´ØªØ±Ø§ÙØ§Øª</h2><div id="subscriptions"></div></div></section>
+
+<section id="settings" class="hide"><div class="card section"><h2>Ø§ÙØ¥Ø¹Ø¯Ø§Ø¯Ø§Øª</h2>
+<label>Ø§ÙØ­Ø³Ø§Ø¨</label><select id="changeRole"><option value="trainer">Ø§ÙÙØ¯Ø±Ø¨</option><option value="captain">Ø§ÙÙØ§Ø¨ØªÙ</option></select>
+<label>ÙÙÙØ© Ø§ÙÙØ±ÙØ± Ø§ÙØ¬Ø¯ÙØ¯Ø©</label><input id="newPass" type="password">
+<button class="btn" onclick="changePass()">ØªØºÙÙØ± ÙÙÙØ© Ø§ÙÙØ±ÙØ±</button>
+<hr style="border-color:#304257;margin:25px 0">
+<button class="btn danger" onclick="clearData()">Ø­Ø°Ù Ø¬ÙÙØ¹ Ø¨ÙØ§ÙØ§Øª Ø§ÙÙØªØ¯Ø±Ø¨ÙÙ</button>
+<p class="muted">Ø§ÙØ¨ÙØ§ÙØ§Øª ÙØ­ÙÙØ¸Ø© ÙÙ ÙØ°Ø§ Ø§ÙÙØªØµÙØ­ ÙÙØ·.</p>
+</div></section>
+</main>
+<footer class="muted" style="text-align:center;padding:30px">Â© 2026 Gym of Iraq â Ø¬ÙÙØ¹ Ø§ÙØ­ÙÙÙ ÙØ­ÙÙØ¸Ø©</footer>
+</div>
+
+<div id="modal" class="modal hide" onclick="if(event.target===this)closeModal()"><div class="card"><button class="btn secondary" style="float:left;margin:0" onclick="closeModal()">Ø¥ØºÙØ§Ù</button><div id="modalBody"></div></div></div>
 
 <script>
+const DATA_KEY="gymIraqV3",ACC_KEY="gymIraqAccountsV3";
+const defaultAcc={trainer:{username:"trainer",password:"1234",label:"Ø§ÙÙØªØ¯Ø±Ø¨"},captain:{username:"captain",password:"1234",label:"Ø§ÙÙØ§Ø¨ØªÙ"}};
+let acc=load(ACC_KEY,defaultAcc),data=load(DATA_KEY,[]),currentRole=null;
 
-function openGymModal(id){
-  document.getElementById(id).style.display = "flex";
+function load(k,f){try{let x=localStorage.getItem(k);return x?JSON.parse(x):f}catch(e){return f}}
+function saveData(){localStorage.setItem(DATA_KEY,JSON.stringify(data))}
+function saveAcc(){localStorage.setItem(ACC_KEY,JSON.stringify(acc))}
+function login(){
+ let r=role.value,u=user.value.trim(),p=pass.value;
+ if(acc[r]&&acc[r].username===u&&acc[r].password===p){
+  currentRole=r;sessionStorage.setItem("gymSession",JSON.stringify({r,u}));
+  loginBox(false);refresh();
+ }else loginMsg.textContent="Ø§Ø³Ù Ø§ÙÙØ³ØªØ®Ø¯Ù Ø£Ù ÙÙÙØ© Ø§ÙÙØ±ÙØ± ØºÙØ± ØµØ­ÙØ­Ø©.";
 }
-
-function closeGymModal(id){
-  document.getElementById(id).style.display = "none";
+function loginBox(show){document.getElementById("login").classList.toggle("hide",!show);document.getElementById("app").classList.toggle("hide",show)}
+function logout(){sessionStorage.removeItem("gymSession");location.reload()}
+function restore(){
+ try{let s=JSON.parse(sessionStorage.getItem("gymSession"));if(s&&acc[s.r]){currentRole=s.r;loginBox(false);refresh()}}catch(e){}
 }
-
-function saveTrainee(){
-
-    var name = document.getElementById("traineeName").value;
-    var age = document.getElementById("traineeAge").value;
-    var phone = document.getElementById("traineePhone").value;
-    var start = document.getElementById("traineeStart").value;
-    var end = document.getElementById("traineeEnd").value;
-    var coach = document.getElementById("traineeCoach").value;
-
-    var photoInput = document.getElementById("traineePhoto");
-    var photoFile = photoInput && photoInput.files[0]
-        ? photoInput.files[0]
-        : null;
-
-    var profilePhotoInput = document.getElementById("traineeProfilePhoto");
-    var profilePhotoFile = profilePhotoInput && profilePhotoInput.files[0]
-        ? profilePhotoInput.files[0]
-        : null;
-
-    var weightInput = document.getElementById("traineeWeight");
-    var heightInput = document.getElementById("traineeHeight");
-    var notesInput = document.getElementById("traineeNotes");
-
-    var weight = weightInput ? weightInput.value : "";
-    var height = heightInput ? heightInput.value : "";
-    var notes = notesInput ? notesInput.value : "";
-
-    /* التحقق من البيانات الأساسية */
-    if(!name || !phone || !start || !end){
-
-        alert("يرجى إدخال الاسم ورقم الهاتف وتاريخ بداية ونهاية الاشتراك.");
-
-        return;
-    }
-
-    /* بيانات المتدرب */
-    var trainee = {
-
-        id: Date.now(),
-
-        name: name,
-
-        age: age,
-
-        phone: phone,
-
-        start: start,
-
-        end: end,
-
-        coach: coach,
-
-        weight: weight,
-
-        height: height,
-
-        notes: notes,
-
-        photo: "",
-
-        profilePhoto: ""
-
-    };
-
-    /* جلب المتدربين السابقين */
-    var trainees = JSON.parse(
-        localStorage.getItem("gymTrainees")
-    ) || [];
-
-
-    /* قراءة الصور */
-    function readImage(file, callback){
-
-        if(!file){
-
-            callback("");
-
-            return;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = function(e){
-
-            callback(e.target.result);
-
-        };
-
-        reader.onerror = function(){
-
-            callback("");
-
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-
-    /* قراءة صورة المتدرب الشخصية أولاً */
-    readImage(profilePhotoFile, function(profileResult){
-
-        trainee.profilePhoto = profileResult;
-
-
-        /* بعدها قراءة صورة التطور */
-        readImage(photoFile, function(photoResult){
-
-            trainee.photo = photoResult;
-
-
-            /* إضافة المتدرب مرة واحدة فقط */
-            trainees.push(trainee);
-
-
-            /* حفظ جميع البيانات */
-            localStorage.setItem(
-                "gymTrainees",
-                JSON.stringify(trainees)
-            );
-
-
-            /* رسالة نجاح */
-            alert("تم حفظ بيانات المتدرب بنجاح ✓");
-
-
-            /* تحديث قائمة المتدربين */
-            if(typeof renderTrainees === "function"){
-
-                renderTrainees();
-
-            }
-
-
-            /* إغلاق النافذة */
-            closeGymModal("traineeModal");
-
-        });
-
-    });
-
+function tab(id,btn){
+ if(id==="add"&&currentRole!=="trainer")return;
+ document.querySelectorAll("main section").forEach(x=>x.classList.add("hide"));
+ document.getElementById(id).classList.remove("hide");
+ document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+ if(btn)btn.classList.add("active");refresh();
 }
-
-    reader.readAsDataURL(photoFile);
-
-  }else{
-
-    trainees.push(trainee);
-
-    localStorage.setItem(
-      "gymTrainees",
-      JSON.stringify(trainees)
-    );
-
-    alert("✓ تم حفظ بيانات المتدرب بنجاح");
-
-    if(typeof renderTrainees === "function"){
-
-      renderTrainees();
-
-    }
-
-    closeGymModal("traineeModal");
-  }
-
+function status(end){
+ let d=new Date(end+"T00:00:00"),today=new Date();today.setHours(0,0,0,0);
+ let n=Math.ceil((d-today)/86400000);
+ if(!end||n<0)return["expired","ÙÙØªÙÙ",n];
+ if(n<=7)return["soon",n===0?"ÙÙØªÙÙ Ø§ÙÙÙÙ":"ÙØªØ¨ÙÙ "+n+" ÙÙÙ",n];
+ return["active","ÙØ¹Ø§Ù",n];
 }
-
-function renderTrainees(list) {
-
-    var container = document.getElementById("traineeList");
-
-    if (!container) return;
-
-    var trainees = list || JSON.parse(
-        localStorage.getItem("gymTrainees") || "[]"
-    );
-
-    if (trainees.length === 0) {
-        container.innerHTML =
-            "<p style='text-align:center;'>لا توجد بيانات متدربين حالياً</p>";
-        return;
-    }
-
-    container.innerHTML = "";
-
-    trainees.forEach(function(trainee, index) {
-
-        var card = document.createElement("div");
-        card.className = "gym-user-card";
-
-        var photo = trainee.photo
-            ? "<img src='" + trainee.photo + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;'>"
-            : "<div style='font-size:50px;'>🏋️</div>";
-var profilePhoto = trainee.profilePhoto
-    ? "<img src='" + trainee.profilePhoto + "' style='width:90px;height:90px;object-fit:cover;border-radius:50%;'>"
-    : "";
-
-        card.innerHTML =
-            profilephoto +
-            photo +
-            "<h3>" + (trainee.name || "بدون اسم") + "</h3>" +
-            "<p>العمر: " + (trainee.age || "-") + "</p>" +
-            "<p>الهاتف: " + (trainee.phone || "-") + "</p>" +
-            "<p>تاريخ البداية: " + (trainee.start || "-") + "</p>" +
-            "<p>تاريخ النهاية: " + (trainee.end || "-") + "</p>" +
-            "<p>المدرب: " + (trainee.coach || "-") + "</p>" +
-            "<p>الوزن: " + (trainee.weight || "-") + " كغم</p>" +
-            "<p>الطول: " + (trainee.height || "-") + " سم</p>" +
-            "<p>" + (trainee.notes || "") + "</p>" +
-"<button class='gym-user-btn' onclick='editTrainee(" + index + ")'>تعديل المتدرب</button>" +
-
-                    "<button class='gym-user-btn' onclick='deleteTrainee(" + index + ")'>حذف المتدرب</button>";
-
-        container.appendChild(card);
-    });
+function img(file){return new Promise((res,rej)=>{if(!file)return res("");let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}
+async function save(e){
+ e.preventDefault();if(currentRole!=="trainer")return alert("ÙØ°Ù Ø§ÙØ¹ÙÙÙØ© ÙÙÙØ¯Ø±Ø¨ ÙÙØ·.");
+ let id=editId.value,old=id?data.find(x=>String(x.id)===String(id)):null;
+ let pp=old?.profilePhoto||"",ph=old?.photo||"";
+ try{if(profilePhoto.files[0])pp=await img(profilePhoto.files[0]);if(photo.files[0])ph=await img(photo.files[0])}catch(x){return alert("ØªØ¹Ø°Ø± ÙØ±Ø§Ø¡Ø© Ø§ÙØµÙØ±Ø©")}
+ let t={id:id?Number(id):Date.now(),name:name.value.trim(),age:age.value,phone:phone.value.trim(),coach:coach.value.trim(),start:start.value,end:end.value,weight:weight.value,height:height.value,notes:notes.value.trim(),profilePhoto:pp,photo:ph,createdAt:old?.createdAt||Date.now(),updatedAt:Date.now()};
+ if(!t.name||!t.phone||!t.coach||!t.start||!t.end)return alert("Ø§ÙÙØ£ Ø§ÙØ­ÙÙÙ Ø§ÙØ¥ÙØ²Ø§ÙÙØ©.");
+ if(new Date(t.end)<new Date(t.start))return alert("ØªØ§Ø±ÙØ® Ø§ÙØ§ÙØªÙØ§Ø¡ ÙØ¬Ø¨ Ø£Ù ÙÙÙÙ Ø¨Ø¹Ø¯ Ø§ÙØ¨Ø¯Ø§ÙØ©.");
+ if(id){let i=data.findIndex(x=>String(x.id)===String(id));if(i>=0)data[i]=t}else data.unshift(t);
+ try{saveData();resetForm();alert("ØªÙ Ø­ÙØ¸ Ø§ÙÙØªØ¯Ø±Ø¨ Ø¨ÙØ¬Ø§Ø­ â");tab("trainees",document.querySelectorAll(".tab")[1])}catch(x){alert("ÙØ´Ù Ø§ÙØ­ÙØ¸. Ø¬Ø±ÙØ¨ ØµÙØ±Ø§Ù Ø£ØµØºØ±.");}
 }
-function editTrainee(index) {
-
-    var trainees = JSON.parse(
-        localStorage.getItem("gymTrainees") || "[]"
-    );
-
-    var trainee = trainees[index];
-
-    if (!trainee) return;
-
-    document.getElementById("traineeName").value = trainee.name || "";
-    document.getElementById("traineeAge").value = trainee.age || "";
-    document.getElementById("traineePhone").value = trainee.phone || "";
-    document.getElementById("traineeStart").value = trainee.start || "";
-    document.getElementById("traineeEnd").value = trainee.end || "";
-    document.getElementById("traineeCoach").value = trainee.coach || "";
-
-    var weightInput = document.getElementById("traineeWeight");
-    var heightInput = document.getElementById("traineeHeight");
-    var notesInput = document.getElementById("traineeNotes");
-
-    if (weightInput) weightInput.value = trainee.weight || "";
-    if (heightInput) heightInput.value = trainee.height || "";
-    if (notesInput) notesInput.value = trainee.notes || "";
-
-    window.editingTraineeIndex = index;
-
-    openGymModal("traineeModal");
-
-    var saveButton = document.querySelector(
-        '#traineeModal button[onclick="saveTrainee()"]'
-    );
-
-    if (saveButton) {
-        saveButton.innerText = "تحديث بيانات المتدرب";
-        saveButton.setAttribute("onclick", "updateTrainee()");
-    }
+function resetForm(){document.querySelector("form").reset();editId.value="";formTitle.textContent="Ø¥Ø¶Ø§ÙØ© ÙØªØ¯Ø±Ø¨"}
+function edit(id){
+ if(currentRole!=="trainer")return;
+ let t=data.find(x=>x.id===id);if(!t)return;
+ tab("add",document.getElementById("addTab"));formTitle.textContent="ØªØ¹Ø¯ÙÙ ÙØªØ¯Ø±Ø¨";editId.value=t.id;
+ name.value=t.name||"";age.value=t.age||"";phone.value=t.phone||"";coach.value=t.coach||"";start.value=t.start||"";end.value=t.end||"";weight.value=t.weight||"";height.value=t.height||"";notes.value=t.notes||"";
+ scrollTo(0,0)
 }
-function updateTrainee() {
-
-    var index = window.editingTraineeIndex;
-
-    if (index === undefined || index === null) return;
-
-    var trainees = JSON.parse(
-        localStorage.getItem("gymTrainees") || "[]"
-    );
-
-    if (!trainees[index]) return;
-trainees[index].name =
-        document.getElementById("traineeName").value;
-
-    trainees[index].age =
-        document.getElementById("traineeAge").value;
-
-    trainees[index].phone =
-        document.getElementById("traineePhone").value;
-
-    trainees[index].start =
-        document.getElementById("traineeStart").value;
-
-    trainees[index].end =
-        document.getElementById("traineeEnd").value;
-
-    trainees[index].coach =
-        document.getElementById("traineeCoach").value;
-var weightInput = document.getElementById("traineeWeight");
-    var heightInput = document.getElementById("traineeHeight");
-    var notesInput = document.getElementById("traineeNotes");
-
-    if (weightInput)
-        trainees[index].weight = weightInput.value;
-
-    if (heightInput)
-        trainees[index].height = heightInput.value;
-
-    if (notesInput)
-        trainees[index].notes = notesInput.value;
-
-    var photoInput = document.getElementById("traineePhoto");
-
-    if (photoInput && photoInput.files && photoInput.files[0]) {
-
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-
-            trainees[index].photo = e.target.result;
-
-            localStorage.setItem(
-                "gymTrainees",
-                JSON.stringify(trainees)
-            );
-
-            renderTrainees(trainees);
-
-            closeGymModal("traineeModal");
-
-            window.editingTraineeIndex = null;
-        };
-
-        reader.readAsDataURL(photoInput.files[0]);
-
-        return;
-    }
-localStorage.setItem(
-    "gymTrainees",
-    JSON.stringify(trainees)
-);
-
-renderTrainees(trainees);
-
-alert("✓ تم تحديث بيانات المتدرب بنجاح");
-
-closeGymModal("traineeModal");
-
-window.editingTraineeIndex = null;
+function del(id){
+ if(currentRole!=="trainer")return;
+ let t=data.find(x=>x.id===id);if(t&&confirm("Ø­Ø°Ù "+t.name+"Ø")){data=data.filter(x=>x.id!==id);saveData();refresh()}
 }
-
-
-function searchTrainees() {
-
-    var input = document.getElementById("traineeSearch");
-
-    if (!input) return;
-
-    var search = input.value.toLowerCase().trim();
-
-    var trainees = JSON.parse(
-        localStorage.getItem("gymTrainees") || "[]"
-    );
-
-    if (!search) {
-        renderTrainees(trainees);
-        return;
-    }
-
-    var results = trainees.filter(function(trainee) {
-
-        return (
-            (trainee.name || "").toLowerCase().includes(search) ||
-            (trainee.phone || "").toLowerCase().includes(search)
-        );
-
-    });
-
-    renderTrainees(results);
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function card(t){
+ let s=status(t.end);
+ return `<article class="trainee"><div class="photos">
+ ${t.profilePhoto?`<img src="${esc(t.profilePhoto)}">`:'<div class="avatar">ð¤</div>'}
+ ${t.photo?`<img src="${esc(t.photo)}">`:'<div class="avatar">ðï¸</div>'}</div>
+ <div class="row"><h3>${esc(t.name)}</h3><span class="badge ${s[0]}">${esc(s[1])}</span></div>
+ <p>ð ${esc(t.phone||"-")}</p><p>ðï¸ Ø§ÙÙØ¯Ø±Ø¨: ${esc(t.coach||"-")}</p>
+ <p>ð ${esc(t.start||"-")} â ${esc(t.end||"-")}</p><p>âï¸ ${esc(t.weight||"-")} ÙØºÙ | ð ${esc(t.height||"-")} Ø³Ù</p>
+ <div class="actions"><button class="btn secondary" onclick="view(${t.id})">Ø¹Ø±Ø¶</button>
+ ${currentRole==="trainer"?`<button class="btn" onclick="edit(${t.id})">ØªØ¹Ø¯ÙÙ</button><button class="btn danger" onclick="del(${t.id})">Ø­Ø°Ù</button>`:""}</div></article>`
 }
-
-
-function deleteTrainee(index) {
-
-    var trainees = JSON.parse(
-        localStorage.getItem("gymTrainees") || "[]"
-    );
-
-    if (!confirm("هل أنت متأكد من حذف هذا المتدرب؟")) {
-        return;
-    }
-
-    trainees.splice(index, 1);
-
-    localStorage.setItem(
-        "gymTrainees",
-        JSON.stringify(trainees)
-    );
-
-    renderTrainees(trainees);
+function render(){
+ let q=(document.getElementById("search")?.value||"").toLowerCase();
+ let a=data.filter(t=>[t.name,t.phone,t.coach].some(v=>String(v||"").toLowerCase().includes(q)));
+ document.getElementById("list").innerHTML=a.length?a.map(card).join(""):'<p class="muted">ÙØ§ ØªÙØ¬Ø¯ Ø¨ÙØ§ÙØ§Øª.</p>';
 }
-
-
-renderTrainees();
-
-function saveCoach(){
-
-  var name = document.getElementById("coachName").value;
-  var phone = document.getElementById("coachPhone").value;
-
-  if(!name || !phone){
-
-    alert("يرجى إدخال اسم الكابتن ورقم الهاتف.");
-
-    return;
-  }
-
-  var coach = {
-    name:name,
-    phone:phone
-  };
-
-  localStorage.setItem("gymCoach", JSON.stringify(coach));
-
-  alert("تم إنشاء حساب الكابتن بنجاح ✅");
-
-  closeGymModal("coachModal");
+function refresh(){
+ document.getElementById("welcome").textContent="ÙØ±Ø­Ø¨Ø§Ù "+(acc[currentRole]?.label||"")+" â "+(acc[currentRole]?.username||"");
+ document.getElementById("addTab").classList.toggle("hide",currentRole!=="trainer");
+ total.textContent=data.length;activeN.textContent=data.filter(t=>status(t.end)[0]==="active").length;soonN.textContent=data.filter(t=>status(t.end)[0]==="soon").length;expiredN.textContent=data.filter(t=>status(t.end)[0]==="expired").length;
+ render();
+ let latest=[...data].sort((a,b)=>b.createdAt-a.createdAt).slice(0,5);
+ document.getElementById("latest").innerHTML=latest.length?latest.map(t=>`<div class="card" style="margin:8px 0;padding:12px"><div class="row"><b>${esc(t.name)}</b><span>${esc(t.phone||"-")}</span><button class="btn secondary" style="margin:0" onclick="view(${t.id})">Ø¹Ø±Ø¶</button></div></div>`).join(""):'<p class="muted">ÙØ§ ØªÙØ¬Ø¯ ÙØªØ¯Ø±Ø¨ÙÙ Ø¨Ø¹Ø¯.</p>';
+ let subs=[...data].sort((a,b)=>status(a.end)[2]-status(b.end)[2]);
+ document.getElementById("subscriptions").innerHTML=subs.length?subs.map(t=>{let s=status(t.end);return `<div class="card" style="margin:9px 0;padding:14px;border-color:#304257"><div class="row"><b>${esc(t.name)}</b><span class="badge ${s[0]}">${esc(s[1])}</span></div><span class="muted">Ø§ÙÙÙØ§ÙØ©: ${esc(t.end||"-")} â Ø§ÙÙØ§ØªÙ: ${esc(t.phone||"-")}</span></div>`}).join(""):'<p class="muted">ÙØ§ ØªÙØ¬Ø¯ Ø§Ø´ØªØ±Ø§ÙØ§Øª.</p>';
 }
-function openGymModal(id) {
-    var modal = document.getElementById(id);
-
-    if (modal) {
-        modal.style.display = "flex";
-    }
+function view(id){
+ let t=data.find(x=>x.id===id);if(!t)return;let s=status(t.end);
+ modalBody.innerHTML=`<h2>${esc(t.name)}</h2><div class="photos">${t.profilePhoto?`<img src="${esc(t.profilePhoto)}">`:'<div class="avatar">ð¤</div>'}${t.photo?`<img src="${esc(t.photo)}">`:'<div class="avatar">ðï¸</div>'}</div><p>Ø§ÙØ­Ø§ÙØ©: <span class="badge ${s[0]}">${esc(s[1])}</span></p><p>Ø§ÙØ¹ÙØ±: ${esc(t.age||"-")}</p><p>Ø§ÙÙØ§ØªÙ: ${esc(t.phone||"-")}</p><p>Ø§ÙÙØ¯Ø±Ø¨: ${esc(t.coach||"-")}</p><p>Ø§ÙØ§Ø´ØªØ±Ø§Ù: ${esc(t.start||"-")} â ${esc(t.end||"-")}</p><p>Ø§ÙÙØ²Ù: ${esc(t.weight||"-")} ÙØºÙ</p><p>Ø§ÙØ·ÙÙ: ${esc(t.height||"-")} Ø³Ù</p><p>Ø§ÙÙÙØ§Ø­Ø¸Ø§Øª: ${esc(t.notes||"ÙØ§ ØªÙØ¬Ø¯")}</p>`;
+ modal.classList.remove("hide")
 }
-
+function closeModal(){modal.classList.add("hide")}
+function changePass(){let r=changeRole.value,p=newPass.value.trim();if(p.length<4)return alert("ÙÙÙØ© Ø§ÙÙØ±ÙØ± 4 Ø£Ø­Ø±Ù/Ø£Ø±ÙØ§Ù Ø¹ÙÙ Ø§ÙØ£ÙÙ.");acc[r].password=p;saveAcc();newPass.value="";alert("ØªÙ ØªØºÙÙØ± ÙÙÙØ© Ø§ÙÙØ±ÙØ±.")}
+function clearData(){if(currentRole!=="trainer")return alert("ÙÙÙØ¯Ø±Ø¨ ÙÙØ·.");if(confirm("Ø³ÙØªÙ Ø­Ø°Ù Ø¬ÙÙØ¹ Ø§ÙÙØªØ¯Ø±Ø¨ÙÙ. ÙÙ Ø£ÙØª ÙØªØ£ÙØ¯Ø")){data=[];saveData();refresh()}}
+restore();
 </script>
-
 </body>
+</html>
+
