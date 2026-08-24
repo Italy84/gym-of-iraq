@@ -916,10 +916,108 @@ function renderTrainees(list) {
             "<p>الوزن: " + (trainee.weight || "-") + " كغم</p>" +
             "<p>الطول: " + (trainee.height || "-") + " سم</p>" +
             "<p>" + (trainee.notes || "") + "</p>" +
-            "<button class='gym-user-btn' onclick='deleteTrainee(" + index + ")'>حذف المتدرب</button>";
+            "<button class='gym-user-btn' onclick='editTrainee(" + index + ")'>تعديل المتدرب</button>" +
+
+                    "<button class='gym-user-btn' onclick='deleteTrainee(" + index + ")'>حذف المتدرب</button>";
 
         container.appendChild(card);
     });
+}
+function editTrainee(index) {
+
+    var trainees = JSON.parse(
+        localStorage.getItem("gymTrainees") || "[]"
+    );
+
+    var trainee = trainees[index];
+
+    if (!trainee) return;
+
+    document.getElementById("traineeName").value = trainee.name || "";
+    document.getElementById("traineeAge").value = trainee.age || "";
+    document.getElementById("traineePhone").value = trainee.phone || "";
+    document.getElementById("traineeStart").value = trainee.start || "";
+    document.getElementById("traineeEnd").value = trainee.end || "";
+    document.getElementById("traineeCoach").value = trainee.coach || "";
+
+    var weightInput = document.getElementById("traineeWeight");
+    var heightInput = document.getElementById("traineeHeight");
+    var notesInput = document.getElementById("traineeNotes");
+
+    if (weightInput) weightInput.value = trainee.weight || "";
+    if (heightInput) heightInput.value = trainee.height || "";
+    if (notesInput) notesInput.value = trainee.notes || "";
+
+    window.editingTraineeIndex = index;
+
+    openGymModal("traineeModal");
+
+    var saveButton = document.querySelector(
+        '#traineeModal button[onclick="saveTrainee()"]'
+    );
+
+    if (saveButton) {
+        saveButton.innerText = "تحديث بيانات المدرب";
+        saveButton.setAttribute("onclick", "updateTrainee()");
+    }
+}
+
+
+function updateTrainee() {
+
+    var index = window.editingTraineeIndex;
+
+    if (index === undefined || index === null) return;
+
+    var trainees = JSON.parse(
+        localStorage.getItem("gymTrainees") || "[]"
+    );
+
+    if (!trainees[index]) return;
+
+    trainees[index].name =
+        document.getElementById("traineeName").value;
+
+    trainees[index].age =
+        document.getElementById("traineeAge").value;
+
+    trainees[index].phone =
+        document.getElementById("traineePhone").value;
+
+    trainees[index].start =
+        document.getElementById("traineeStart").value;
+
+    trainees[index].end =
+        document.getElementById("traineeEnd").value;
+
+    trainees[index].coach =
+        document.getElementById("traineeCoach").value;
+
+    var weightInput = document.getElementById("traineeWeight");
+    var heightInput = document.getElementById("traineeHeight");
+    var notesInput = document.getElementById("traineeNotes");
+
+    if (weightInput)
+        trainees[index].weight = weightInput.value;
+
+    if (heightInput)
+        trainees[index].height = heightInput.value;
+
+    if (notesInput)
+        trainees[index].notes = notesInput.value;
+
+    localStorage.setItem(
+        "gymTrainees",
+        JSON.stringify(trainees)
+    );
+
+    renderTrainees(trainees);
+
+    alert("✓ تم تحديث بيانات المدرب بنجاح");
+
+    closeGymModal("traineeModal");
+
+    window.editingTraineeIndex = null;
 }
 
 
